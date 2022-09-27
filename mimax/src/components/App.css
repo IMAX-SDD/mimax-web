@@ -54,6 +54,10 @@ body {
   position: relative;
 }
 
+.movie-display-section {
+  text-align: center;
+}
+
 .director-actor-bio-section {
   width: 100%;
   text-align: center;
