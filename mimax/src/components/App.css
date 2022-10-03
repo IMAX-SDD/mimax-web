@@ -1,19 +1,77 @@
-.App {
-  text-align: center;
-}
-.btn {
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Georgia;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 14px;
-  background: #3498db;
-  text-decoration: none;
+* {
+  box-sizing: border-box;
 }
 
-.btn:hover {
-  background: #3cb0fd;
-  text-decoration: none;
+/* Header========================== */
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background:  #312828;
+  color: hsl(124, 42%, 38%);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  background:  #312828;
+  box-shadow: 0 5px 15px  hsl(124, 42%, 38%);
+  height: 150px;
+  width: 100%;
+  padding: 30px 25px; 
+}
+
+.nav-bar {
+  font-size: 1.5rem;
+  color: hsl(116, 74%, 27%);
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.nav-bar:hover {
+  color: hsl(125, 87%, 15%);
+  transform: rotate(90deg);
+}
+
+.logo {
+  height: 100px;
+  margin: auto;
+  padding-right: 40px;
+}
+
+.bar-links  {
+  list-style: none;
+  margin-top: 20px;
+  color: hsl(124, 42%, 38%);
+}
+
+/* Main=========================== */
+
+.intro {
+  position: relative;
+}
+
+.movie-display-section {
+  text-align: center;
+}
+
+.director-actor-bio-section {
+  width: 100%;
+  text-align: center;
+  margin-top: 400px;
+  height: fit-content;
+  padding-bottom: 300px;
+  background-color:hsl(124, 42%, 38%);
+  box-shadow: 0px -5px 15px  hsl(124, 42%, 38%);
+}
+
+.director-actor-bio-section-title {
+  font-size: 2rem;
+  font-weight: 500;
+  padding-top: 25px;
+  letter-spacing: 0.1rem;
+  color: #312828;
 }
