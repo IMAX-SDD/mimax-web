@@ -26,8 +26,11 @@ const Main = () => {
                 <h2>{count}</h2>
                 <button class="btn" onClick={increment}>CLICK ME</button> <br/>
                 <button class="btn" style={{marginTop: '20px'}} onClick={reset}>RESET</button> <br/> <br/>
-                <button class="btn" onClick={callAPI}>API CALL</button>
-                <p ></p>
+                <button class="btn" onClick={callAPI}>API CALL</button> <br/>
+                <input type="search" placeholder="Search" class="search-field"/>
+                <button type="submit">
+                    <i class="fa fa-search fa-lg"/>
+                </button>
             </div>
 
             <div className="director-actor-bio-section">
