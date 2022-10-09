@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../img/logo.jpg"
+// import { Link } from 'react-router-dom';
+import logo from "../img/logo.jpg";
 import { FaBars } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 
@@ -13,16 +14,16 @@ const Navbar = () => {
             </button>
             <ul className="bar-links">
                 <li>
-                    <a href=''>Movies</a>
+                    <a href='/#'>Movies</a>
                 </li>
                 <li>
-                    <a href=''>TV Shows</a>
+                    <a href='/#'>TV Shows</a>
                 </li>
                 <li>
-                    <a href=''>Actors</a>
+                    <a href='/#'>Actors</a>
                 </li>
                 <li>
-                    <a href=''>Directors</a>
+                    <a href='/#'>Directors</a>
                 </li>
             </ul>
         </div>
