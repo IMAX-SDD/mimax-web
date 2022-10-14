@@ -32,7 +32,7 @@ body {
 }
 
 .nav-bar:hover {
-  color: hsl(125, 87%, 15%);
+  color: hsl(124, 55%, 58%);
   transform: rotate(90deg);
 }
 
@@ -42,10 +42,47 @@ body {
   padding-right: 40px;
 }
 
+.sidebar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+}
+
+.close-sidebar-btn {
+  position: fixed;
+  font-size: 1.75rem;
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  color: hsl(124, 42%, 38%);
+  padding: 0.7rem 0.7rem;
+}
+.close-sidebar-btn:hover {
+  color: hsl(124, 55%, 58%);
+}
+
 .bar-links  {
   list-style: none;
-  margin-top: 20px;
+  padding-top: 40px;
   color: hsl(124, 42%, 38%);
+}
+
+.bar-links a {
+  margin-left: 0px; 
+  color:  hsl(124, 42%, 38%);
+  font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  display: block;
+  padding: 0.5rem 0rem;
+}
+
+.bar-links a:hover {
+  background: #312828;
+  padding: 0.5rem 0.5rem;
 }
 
 /* Main=========================== */

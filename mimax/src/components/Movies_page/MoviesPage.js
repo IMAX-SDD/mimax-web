@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "../Header/Navbar";
 import Main from "./Main";
 
-const Homepage = () => {
+const MoviesPage = () => {
     return (
-        <div className="Homepage">
+        <div className="MoviesPage">
             <Navbar />
             <Main />
         </div>
     )
 }
 
-export default Homepage
+export default MoviesPage
