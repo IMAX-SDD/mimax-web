@@ -3,6 +3,7 @@ import React from "react";
 import logo from "../img/logo.jpg";
 import { FaBars } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [toggleBar, setToggleBar] = React.useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
             </button>
             <ul className="bar-links">
                 <li>
-                    <a href='/#'>Movies</a>
+                    <Link to='/movies'>Movies</Link>
                 </li>
                 <li>
                     <a href='/#'>TV Shows</a>

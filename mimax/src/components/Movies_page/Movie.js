@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Main = () => {
+const Movie = () => {
 
     const [term, setTerm] = useState("");
     const [movieTitle, setMovieTitle] = useState("");
@@ -29,6 +29,7 @@ const Main = () => {
     return (
         <div className="main">
             <div className="movie-display-section">
+                <h1>Movie Page</h1>
                 <input type="search" placeholder="Search Movies" onChange={setSearch} class="search-field"/>
                 <button type="submit" onClick={callAPI}>
                     <i class="fa fa-search fa-lg"/>
@@ -46,4 +47,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default Movie
