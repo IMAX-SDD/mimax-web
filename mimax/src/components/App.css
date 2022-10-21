@@ -45,6 +45,7 @@ body {
 .sidebar {
   display: flex;
   position: fixed;
+  z-index: 10;
   top: 0;
   width: 250px;
   height: 100vh;
@@ -59,6 +60,8 @@ body {
   cursor: pointer;
   color: hsl(124, 42%, 38%);
   padding: 0.7rem 0.7rem;
+  transition : all 2s ease;
+  /* transition : all 2s ease; */
 }
 .close-sidebar-btn:hover {
   color: hsl(124, 55%, 58%);
@@ -93,6 +96,7 @@ body {
 
 .movie-display-section {
   text-align: center;
+  height: 250px;
 }
 
 .director-actor-bio-section {
@@ -115,12 +119,56 @@ body {
 
 
 .search-field {
-  width: 300px;
+  width: 100%;
+  max-width: 500px;
   height: 24px;
   font-size: 0.8rem;
-
-  margin-top: 20px;
+  margin-top: 40px;
   margin-right: 1px;
   border-radius: 5px;
 }
+
+/* Movie card=========================== */
+
+.movie-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.movie-card {
+  width: 100%;
+  max-width: 175px;
+  background-color: hsl(124, 42%, 38%);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px 
+}
+
+.movie-title {
+  padding-top: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-img {
+  border-radius: 9px;
+  margin-bottom: 9px;
+}
+
+.movie-synopsis {
+  margin-top: 10px;
+}
+
+.movie-score {
+  margin-top: 10px;
+}
+
 

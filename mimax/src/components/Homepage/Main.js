@@ -1,21 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import Movie from "./movie-card";
+import movieData from "./movieData"
 
 const Main = () => {
 
-    const [count, setCount] = useState(0);
     const [term, setTerm] = useState("");
     const [movieTitle, setMovieTitle] = useState("");
     const [movieSynopsis, setMovieSynopsis] = useState("");
     const [movieScore, setMovieScore] = useState("");
-
-    const increment = () => {
-        setCount(count + 1);
-    }
-
-    const reset = () => {
-        setCount(0);
-    }
 
     function setSearch(e) {
         setTerm(e.target.value);
@@ -35,13 +28,21 @@ const Main = () => {
         .then(json => setMovieDeets(json["results"][0])) // Displaying the stringified data in an alert popup
     }
 
+    const movies = movieData.map(item => {
+        return (
+            <Movie
+                key={item.id}
+                {...item}
+                // title={item.movieTitle}
+                // synopsis={item.movieSynopsis}
+                // score={item.movieScore}
+            />
+        )
+    })        
+
     return (
         <div className="main">
             <div className="movie-display-section">
-                <h1>AWESOME BUTTON CLICKER</h1>
-                <h2>{count}</h2>
-                <button class="btn" onClick={increment}>CLICK ME</button> <br/>
-                <button class="btn" style={{marginTop: '20px'}} onClick={reset}>RESET</button> <br/> <br/>
                 <input type="search" placeholder="Search Movies" onChange={setSearch} class="search-field"/>
                 <button type="submit" onClick={callAPI}>
                     <i class="fa fa-search fa-lg"/>
@@ -49,6 +50,10 @@ const Main = () => {
                 <h2>{movieTitle}</h2>
                 <p>{movieSynopsis}</p>
                 <h3>{movieScore}</h3>
+
+                <section className="movie-list">
+                    {movies}
+                </section>
             </div>
 
             <div className="director-actor-bio-section">
