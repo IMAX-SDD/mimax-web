@@ -1,7 +1,11 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.css'
+import {Container, Carousel, Row, Col, Card} from 'react-bootstrap'
 import { useState } from "react";
-import Movie from "./movie-card";
-import movieData from "./movieData"
+import HorrorMovies from "./PopularMoviesData/HorrorMovieData";
+import ActionMovies from "./PopularMoviesData/ActionMovieData";
+import ComedyMovies from "./PopularMoviesData/ComedyMovieData";
+import DramaMovies from "./PopularMoviesData/DramaMovieData";
 
 const Main = () => {
 
@@ -28,17 +32,28 @@ const Main = () => {
         .then(json => setMovieDeets(json["results"][0])) // Displaying the stringified data in an alert popup
     }
 
-    const movies = movieData.map(item => {
+    function movies(movieData) {
         return (
-            <Movie
-                key={item.id}
-                {...item}
-                // title={item.movieTitle}
-                // synopsis={item.movieSynopsis}
-                // score={item.movieScore}
-            />
+         <div className="movie-card">   
+            <Carousel>
+                {movieData.map(item => (
+                    <Carousel.Item key={item.id}>
+                        <Card style={{background: '#3E8943'}}>
+                            <Card.Img 
+                                className="movie-img" 
+                                src={require(`../img/${item.img}`)} 
+                                alt='movie-poster' 
+                            />
+                            <Card.Body> 
+                                <Card.Title className="movie-title">{item.title}</Card.Title>
+                            </Card.Body>
+                        </Card>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+        </div>
         )
-    })        
+    }
 
     return (
         <div className="main">
@@ -50,10 +65,34 @@ const Main = () => {
                 <h2>{movieTitle}</h2>
                 <p>{movieSynopsis}</p>
                 <h3>{movieScore}</h3>
-
+               
                 <section className="movie-list">
-                    {movies}
+                    <Container>
+                        <Row>
+                            <Col>
+                                <p className="genre-title">Horror</p>
+                                {movies(HorrorMovies)}
+                            </Col>
+
+                            <Col>
+                                <p className="genre-title">Action</p>
+                                {movies(ActionMovies)}
+                            </Col>
+
+                            <Col>
+                                <p className="genre-title">Comedy</p>
+                                {movies(ComedyMovies)}
+                            </Col>
+
+                            <Col>
+                                <p className="genre-title">Drama</p>
+                                {movies(DramaMovies)}
+                            </Col>
+                        </Row>
+                    </Container>
                 </section>
+        
+               
             </div>
 
             <div className="director-actor-bio-section">

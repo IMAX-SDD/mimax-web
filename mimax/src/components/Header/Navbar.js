@@ -15,6 +15,9 @@ const Navbar = () => {
             </button>
             <ul className="bar-links">
                 <li>
+                    <Link to='/#'>Home</Link>
+                </li>
+                <li>
                     <Link to='/movies'>Movies</Link>
                 </li>
                 <li>
