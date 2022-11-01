@@ -1,17 +1,18 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
-import logo from "../img/logo.jpg";
+
 import { FaBars } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import logo from '../Images/Misc/logo.jpg'
 
 const Navbar = () => {
     const [toggleBar, setToggleBar] = React.useState(false);
 
-    const sidebar = (
+    // hamburger menu on top left
+    const hamburgerMenu = (
         <div className="sidebar">
             <button className='close-sidebar-btn' onClick={() => setToggleBar(!toggleBar)}>
-                <FaTimes />
+                <FaTimes/>
             </button>
             <ul className="bar-links">
                 <li>
@@ -21,17 +22,19 @@ const Navbar = () => {
                     <Link to='/movies'>Movies</Link>
                 </li>
                 <li>
-                    <a href='/#'>TV Shows</a>
+                    <a href='/tvshows'>TV Shows</a>
                 </li>
                 <li>
-                    <a href='/#'>Actors</a>
+                    <a href='/actors'>Actors</a>
                 </li>
                 <li>
-                    <a href='/#'>Directors</a>
+                    <a href='/directors'>Directors</a>
                 </li>
             </ul>
         </div>
     ) 
+
+    // HTML for expansion of bar
     return ( 
         <nav>
             <div className={toggleBar ? "background-dark" : "background" }>
@@ -42,7 +45,7 @@ const Navbar = () => {
                     </button>
                     <img className="logo" src={logo} alt="logo"/>                    
                 </div>
-                {toggleBar && sidebar}
+                {toggleBar && hamburgerMenu}
             </div>
         </nav>
     )

@@ -1,14 +1,16 @@
-import React from "react";
+import { React, useState } from "react";
+import { Container, Carousel, Row, Col, Card } from 'react-bootstrap'
+
 import 'bootstrap/dist/css/bootstrap.css'
-import {Container, Carousel, Row, Col, Card} from 'react-bootstrap'
-import { useState } from "react";
-import HorrorMovies from "./PopularMoviesData/HorrorMovieData";
 import ActionMovies from "./PopularMoviesData/ActionMovieData";
 import ComedyMovies from "./PopularMoviesData/ComedyMovieData";
 import DramaMovies from "./PopularMoviesData/DramaMovieData";
+import HorrorMovies from "./PopularMoviesData/HorrorMovieData";
 
-const Main = () => {
+// main part of the code for the home page
+const HomePageMain = () => {
 
+    // set up variables for movie title, synopsis and score
     const [term, setTerm] = useState("");
     const [movieTitle, setMovieTitle] = useState("");
     const [movieSynopsis, setMovieSynopsis] = useState("");
@@ -18,43 +20,49 @@ const Main = () => {
         setTerm(e.target.value);
     }
 
-    function setMovieDeets(json) {
+    // set movie details with respective variables
+    function setMovieDetails(json) {
         setMovieTitle(json["original_title"]);
         setMovieSynopsis(json["overview"]);
         setMovieScore("Score " + json["vote_average"]);
     }
 
+    // API call to TMDB
     const callAPI = () => {
         console.log(term);
         var link = "https://api.themoviedb.org/3/search/movie?api_key=9e6293836bcabd02d80d27ccca8eb072&query='" + term + "'"
         fetch(link, { method: 'GET' })
         .then(data => data.json()) // Parsing the data into a JavaScript object
-        .then(json => setMovieDeets(json["results"][0])) // Displaying the stringified data in an alert popup
+        .then(json => setMovieDetails(json["results"][0])) // Displaying the stringified data in an alert popup
     }
 
-    function movies(movieData) {
+    // display of movies function with a carousel-like viewing
+    function displayMovies(movieData) {
         return (
-         <div className="movie-card">   
-            <Carousel>
-                {movieData.map(item => (
-                    <Carousel.Item key={item.id}>
-                        <Card style={{background: '#3E8943'}}>
-                            <Card.Img 
-                                className="movie-img" 
-                                src={require(`../img/${item.img}`)} 
-                                alt='movie-poster' 
-                            />
-                            <Card.Body> 
-                                <Card.Title className="movie-title">{item.title}</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-        </div>
+            <div className="movie-card">   
+                <Carousel>
+                    {movieData.map(item => (
+                        <Carousel.Item key={item.id}>
+                            <Card style={{background: '#3E8943'}}>
+                                <Card.Img 
+                                    className="movie-img" 
+                                    src={require(`/src/components/Images/MoviePosters/${item.img}`)} 
+                                    alt='movie-poster' 
+                                />
+                                <Card.Body> 
+                                    <Card.Title className="movie-title">{item.title}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+            </div>
         )
     }
 
+
+    // displays movie posters as well as their title, synopsis, score
+    // must do: director/actor bio section (line 103)
     return (
         <div className="main">
             <div className="movie-display-section">
@@ -71,36 +79,31 @@ const Main = () => {
                         <Row>
                             <Col>
                                 <p className="genre-title">Horror</p>
-                                {movies(HorrorMovies)}
+                                {displayMovies(HorrorMovies)}
                             </Col>
 
                             <Col>
                                 <p className="genre-title">Action</p>
-                                {movies(ActionMovies)}
+                                {displayMovies(ActionMovies)}
                             </Col>
 
                             <Col>
                                 <p className="genre-title">Comedy</p>
-                                {movies(ComedyMovies)}
+                                {displayMovies(ComedyMovies)}
                             </Col>
 
                             <Col>
                                 <p className="genre-title">Drama</p>
-                                {movies(DramaMovies)}
+                                {displayMovies(DramaMovies)}
                             </Col>
                         </Row>
                     </Container>
                 </section>
-        
-               
             </div>
-
-            <div className="director-actor-bio-section">
-                
-            </div>
+            <div className="director-actor-bio-section"/>
         </div>
         
     )
 }
 
-export default Main
+export default HomePageMain
