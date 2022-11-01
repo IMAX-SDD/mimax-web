@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import TVShowsPageMain from "./TVShowsPageMain/TVShowsPageMain";
-import Navbar from "../Header/Navbar";
+import TVShowsPageMain from './TVShowsPageMain/TVShowsPageMain';
+import Navbar from '../Header/Navbar';
 
 // routing for tv shows page
-const TVShowsPageRouter = () => {
-    return (
-        <div>
-            <Navbar/>
-            <TVShowsPageMain/>
-        </div>
-    )
+function TVShowsPageRouter() {
+  return (
+    <div>
+      <Navbar />
+      <TVShowsPageMain />
+    </div>
+  );
 }
 
-export default TVShowsPageRouter
+export default TVShowsPageRouter;

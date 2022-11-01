@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Navbar from "../Header/Navbar";
-import ActorsPageMain from "./ActorsPageMain/ActorsPageMain";
+import Navbar from '../Header/Navbar';
+import ActorsPageMain from './ActorsPageMain/ActorsPageMain';
 
 // routing for actors page page
-const ActorsPageRouter = () => {
-    return (
-        <div>
-            <Navbar/>
-            <ActorsPageMain/>
-        </div>
-    )
+function ActorsPageRouter() {
+  return (
+    <div>
+      <Navbar />
+      <ActorsPageMain />
+    </div>
+  );
 }
 
-export default ActorsPageRouter
+export default ActorsPageRouter;

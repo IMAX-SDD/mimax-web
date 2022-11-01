@@ -1,11 +1,11 @@
-import React from "react";
-import HomePageRouter from "./HomePage/HomePageRouter";
+import React from 'react';
+import HomePageRouter from './HomePage/HomePageRouter';
 import './App.css';
 
 function App() {
   return (
-    <div class="App">
-      <HomePageRouter/>
+    <div className="App">
+      <HomePageRouter />
     </div>
   );
 }
