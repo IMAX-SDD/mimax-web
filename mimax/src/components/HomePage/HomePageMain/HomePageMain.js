@@ -48,7 +48,7 @@ function HomePageMain() {
               <Card style={{ background: '#3E8943' }}>
                 <Card.Img
                   className="movie-img"
-                  src={require(`../Images/MoviePosters/${item.img}`)}
+                  src={require(`/src/components/Images/MoviePosters/${item.img}`)}
                   alt="movie-poster"
                 />
                 <Card.Body>
