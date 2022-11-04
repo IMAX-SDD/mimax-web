@@ -1,48 +1,57 @@
-import React from "react";
-// import { Link } from 'react-router-dom';
-import logo from "../img/logo.jpg";
-import { FaBars } from 'react-icons/fa';
-import { FaTimes } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import React from 'react';
 
-const Navbar = () => {
-    const [toggleBar, setToggleBar] = React.useState(false);
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-    const sidebar = (
-        <div className="sidebar">
-            <button className='close-sidebar-btn' onClick={() => setToggleBar(!toggleBar)}>
-                <FaTimes />
-            </button>
-            <ul className="bar-links">
-                <li>
-                    <Link to='/movies'>Movies</Link>
-                </li>
-                <li>
-                    <a href='/#'>TV Shows</a>
-                </li>
-                <li>
-                    <a href='/#'>Actors</a>
-                </li>
-                <li>
-                    <a href='/#'>Directors</a>
-                </li>
-            </ul>
+import { Link } from 'react-router-dom';
+import logo from '../Images/Misc/logo.jpg';
+
+function Navbar() {
+  const [toggleBar, setToggleBar] = React.useState(false);
+
+  // hamburger menu on top left
+  const hamburgerMenu = (
+    <div className="sidebar">
+      <button className="close-sidebar-btn" type="button" onClick={() => setToggleBar(!toggleBar)}>
+        <FaTimes />
+      </button>
+      <ul className="bar-links">
+        <li>
+          <Link to="/#">Home</Link>
+        </li>
+        <li>
+          <Link to="/movies">Movies</Link>
+        </li>
+        <li>
+          <a href="/tvshows">TV Shows</a>
+        </li>
+        <li>
+          <a href="/actors">Actors</a>
+        </li>
+        <li>
+          <a href="/directors">Directors</a>
+        </li>
+      </ul>
+    </div>
+  );
+
+  // HTML for expansion of bar
+  return (
+    <nav>
+      <div className={toggleBar ? 'background-dark' : 'background'}>
+        <div className="nav-header">
+          <button
+            className="nav-bar"
+            type="button"
+            onClick={() => setToggleBar(!toggleBar)}
+          >
+            <FaBars />
+          </button>
+          <img className="logo" src={logo} alt="logo" />
         </div>
-    ) 
-    return ( 
-        <nav>
-            <div className={toggleBar ? "background-dark" : "background" }>
-                <div className="nav-header">
-                    <button className="nav-bar"
-                            onClick={() => setToggleBar(!toggleBar)}>
-                        <FaBars />
-                    </button>
-                    <img className="logo" src={logo} alt="logo"/>                    
-                </div>
-                {toggleBar && sidebar}
-            </div>
-        </nav>
-    )
+        {toggleBar && hamburgerMenu}
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
