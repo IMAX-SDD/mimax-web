@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Navbar from '../Header/Navbar';
-import ActorsPageMain from './ActorsPageMain/ActorsPageMain';
+import ActorsPageMain from './ActorsPageMain';
 
 // routing for actors page page
 function ActorsPageRouter() {

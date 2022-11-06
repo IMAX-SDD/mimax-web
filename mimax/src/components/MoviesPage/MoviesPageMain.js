@@ -1,19 +1,13 @@
-import { React, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { React, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // movies page where main code/functionality happens
 function MoviesPageMain() {
-  const [term, setTerm] = useState('');
-  const [movieTitle, setMovieTitle] = useState("");
-  const [movieSynopsis, setMovieSynopsis] = useState("");
-  const [movieScore, setMovieScore] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [movieImgLink, setMovieImgLink] = useState("");
-  
-  useEffect(() => {
-    console.log(searchParams.get("movie"));
-    callAPI(searchParams.get("movie"));
-  }, []);
+  const [movieTitle, setMovieTitle] = useState('');
+  const [movieSynopsis, setMovieSynopsis] = useState('');
+  const [movieScore, setMovieScore] = useState('');
+  const [searchParams] = useSearchParams();
+  const [movieImgLink, setMovieImgLink] = useState('');
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
@@ -31,6 +25,11 @@ function MoviesPageMain() {
       // Displaying the stringified data in an alert popup
       .then((json) => setMovieDetails(json.results[0]));
   };
+
+  useEffect(() => {
+    console.log(searchParams.get('movie'));
+    callAPI(searchParams.get('movie'));
+  }, []);
 
   return (
     <div className="main">

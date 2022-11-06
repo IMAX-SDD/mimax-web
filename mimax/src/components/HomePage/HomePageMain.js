@@ -13,18 +13,14 @@ import HorrorMovies from './PopularMoviesData/HorrorMovieData';
 function HomePageMain() {
   // set up variables for movie title, synopsis and score
   const [term, setTerm] = useState('');
-  const [movieTitle, setMovieTitle] = useState('');
-  const [movieSynopsis, setMovieSynopsis] = useState('');
-  const [movieScore, setMovieScore] = useState('');
 
   function setSearch(e) {
     setTerm(e.target.value);
   }
 
-
   const open = (url) => {
     window.open(url + term, '_blank', 'noopener,noreferrer');
-  }
+  };
 
   // display of movies function with a carousel-like viewing
   function displayMovies(movieData) {
@@ -56,8 +52,8 @@ function HomePageMain() {
     <div className="main">
       <div className="movie-display-section">
         <input type="search" placeholder="Search Movies" onChange={setSearch} className="search-field" />
-        <button type="submit" onClick={() => open("http://localhost:3000/movies?movie=")}>
-            <i class="fa fa-search fa-lg"/>
+        <button type="submit" onClick={() => open('http://localhost:3000/movies?movie=')}>
+          <i className="fa fa-search fa-lg" />
         </button>
 
         <section className="movie-list">

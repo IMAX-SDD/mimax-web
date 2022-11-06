@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Navbar from '../Header/Navbar';
-import DirectorsPageMain from './DirectorsPageMain/DirectorsPageMain';
+import DirectorsPageMain from './DirectorsPageMain';
 
 // routing for directors page
 function DirectorsPageRouter() {

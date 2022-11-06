@@ -19,7 +19,7 @@ function Navbar() {
           <Link to="/#">Home</Link>
         </li>
         <li>
-          <Link to="/movies">Movies</Link>
+          <Link to="/movieslist">Movies</Link>
         </li>
         <li>
           <a href="/tvshows">TV Shows</a>
