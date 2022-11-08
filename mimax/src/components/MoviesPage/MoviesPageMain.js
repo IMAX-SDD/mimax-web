@@ -6,15 +6,37 @@ function MoviesPageMain() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieSynopsis, setMovieSynopsis] = useState('');
   const [movieScore, setMovieScore] = useState('');
+  const [movieProvider, setMovieProvider] = useState('');
   const [searchParams] = useSearchParams();
-  const [movieImgLink, setMovieImgLink] = useState('');
+  // const [movieImgLink, setMovieImgLink] = useState('');
+
+  function setMovieProviderDetails(name) {
+    var sources = name.US.flatrate;
+    console.log(sources)
+    if (sources.length > 0) {
+      setMovieProvider(sources[0].provider_name);
+    } else {
+      setMovieProvider(name.US.buy[0].provider_name);
+    }
+    
+  }
+
+  const getProvider = (id) => {
+    const link = `https://api.themoviedb.org/3/movie/` + id.toString() + `/watch/providers?api_key=9e6293836bcabd02d80d27ccca8eb072`;
+    fetch(link, { method: 'GET' })
+      // Parsing the data into a JavaScript object
+      .then((data) => data.json())
+      // Displaying the stringified data in an alert popup
+      .then((json) => setMovieProviderDetails(json.results));
+  };
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
     setMovieTitle(json.original_title);
     setMovieSynopsis(json.overview);
     setMovieScore(`Score ${json.vote_average}`);
-  }
+    getProvider(json.id);
+  };
 
   // API call to TMDB
   const callAPI = (term) => {
@@ -38,6 +60,7 @@ function MoviesPageMain() {
         <h2>{movieTitle}</h2>
         <p>{movieSynopsis}</p>
         <h3>{movieScore}</h3>
+        <h3>Provider: {movieProvider}</h3>
       </div>
     </div>
   );

@@ -42,27 +42,33 @@ function MoviesListMain() {
         <h2>{movieTitle[0]}</h2>
         <p>{movieSynopsis[0]}</p>
         <h3>{movieScore[0]}</h3>
-
+        <br/>
+        <br/>
         <h2>{movieTitle[1]}</h2>
         <p>{movieSynopsis[1]}</p>
         <h3>{movieScore[1]}</h3>
-
+        <br/>
+        <br/>
         <h2>{movieTitle[2]}</h2>
         <p>{movieSynopsis[2]}</p>
         <h3>{movieScore[2]}</h3>
-
+        <br/>
+        <br/>
         <h2>{movieTitle[3]}</h2>
         <p>{movieSynopsis[3]}</p>
         <h3>{movieScore[3]}</h3>
-
+        <br/>
+        <br/>
         <h2>{movieTitle[4]}</h2>
         <p>{movieSynopsis[4]}</p>
         <h3>{movieScore[4]}</h3>
-
+        <br/>
+        <br/>
         <h2>{movieTitle[5]}</h2>
         <p>{movieSynopsis[5]}</p>
         <h3>{movieScore[5]}</h3>
-
+        <br/>
+        <br/>
         <h2>{movieTitle[6]}</h2>
         <p>{movieSynopsis[6]}</p>
         <h3>{movieScore[6]}</h3>

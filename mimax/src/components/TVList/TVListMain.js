@@ -42,27 +42,33 @@ function TVListMain() {
         <h2>{TVTitle[0]}</h2>
         <p>{TVSynopsis[0]}</p>
         <h3>{TVScore[0]}</h3>
-
+        <br/>
+        <br/>
         <h2>{TVTitle[1]}</h2>
         <p>{TVSynopsis[1]}</p>
         <h3>{TVScore[1]}</h3>
-
+        <br/>
+        <br/>
         <h2>{TVTitle[2]}</h2>
         <p>{TVSynopsis[2]}</p>
         <h3>{TVScore[2]}</h3>
-
+        <br/>
+        <br/>
         <h2>{TVTitle[3]}</h2>
         <p>{TVSynopsis[3]}</p>
         <h3>{TVScore[3]}</h3>
-
+        <br/>
+        <br/>
         <h2>{TVTitle[4]}</h2>
         <p>{TVSynopsis[4]}</p>
         <h3>{TVScore[4]}</h3>
-
+        <br/>
+        <br/>
         <h2>{TVTitle[5]}</h2>
         <p>{TVSynopsis[5]}</p>
         <h3>{TVScore[5]}</h3>
-
+        <br/>
+        <br/>
         <h2>{TVTitle[6]}</h2>
         <p>{TVSynopsis[6]}</p>
         <h3>{TVScore[6]}</h3>
