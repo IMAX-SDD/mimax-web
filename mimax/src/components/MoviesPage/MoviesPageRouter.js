@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MoviesPageMain from './MoviesPageMain/MoviesPageMain';
+import MoviesPageMain from './MoviesPageMain';
 import Navbar from '../Header/Navbar';
 
 // routing for movies page

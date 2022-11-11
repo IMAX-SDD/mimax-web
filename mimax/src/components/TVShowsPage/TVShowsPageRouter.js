@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TVShowsPageMain from './TVShowsPageMain/TVShowsPageMain';
+import TVShowsPageMain from './TVShowsPageMain';
 import Navbar from '../Header/Navbar';
 
 // routing for tv shows page
