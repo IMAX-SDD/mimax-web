@@ -5,11 +5,6 @@ function MoviesListMain() {
   const [movieTitle, setMovieTitle] = useState([]);
   const [movieSynopsis, setMovieSynopsis] = useState([]);
   const [movieScore, setMovieScore] = useState([]);
-  const [buttonText, setButtonText] = useState('Click');
-
-  function handleClick(number) {
-    setButtonText(movieSynopsis[number]);
-  }
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
@@ -46,32 +41,33 @@ function MoviesListMain() {
         <h1>Top Movies</h1>
         <div className="column">
           <h2>{movieTitle[0]} ({movieScore[0]})</h2>
-          <button type="button" onClick={() => handleClick(0)}>{buttonText}</button>
+          <p>{movieSynopsis[0]}</p>
           <br />
           <br />
           <h2>{movieTitle[1]} ({movieScore[1]})</h2>
-          <button type="button" onClick={() => handleClick(1)}>{buttonText}</button>
+          <p>{movieSynopsis[1]}</p>
           <br />
           <br />
           <h2>{movieTitle[2]} ({movieScore[2]})</h2>
-          <button type="button" onClick={() => handleClick(2)}>{buttonText}</button>
+          <p>{movieSynopsis[2]}</p>
+
           <br />
         </div>
         <div className="column">
           <h2>{movieTitle[3]} ({movieScore[3]})</h2>
-          <button type="button" onClick={() => handleClick(3)}>{buttonText}</button>
+          <p>{movieSynopsis[3]}</p>
           <br />
           <br />
           <h2>{movieTitle[4]} ({movieScore[4]})</h2>
-          <button type="button" onClick={() => handleClick(4)}>{buttonText}</button>
+          <p>{movieSynopsis[4]}</p>
           <br />
           <br />
           <h2>{movieTitle[5]} ({movieScore[5]})</h2>
-          <button type="button" onClick={() => handleClick(5)}>{buttonText}</button>
+          <p>{movieSynopsis[5]}</p>
           <br />
           <br />
           <h2>{movieTitle[6]} ({movieScore[6]})</h2>
-          <button type="button" onClick={() => handleClick(6)}>{buttonText}</button>
+          <p>{movieSynopsis[6]}</p>
         </div>
         <br />
       </div>
