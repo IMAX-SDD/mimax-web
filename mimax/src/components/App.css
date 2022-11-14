@@ -54,8 +54,8 @@ body {
 
 .logo {
   height: 100px;
-  margin: auto;
-  padding-right: 40px;
+  margin-left: 255px;
+  padding-right: 100px;
 }
 
 .sidebar {
@@ -111,6 +111,22 @@ body {
 .movie-display-section {
   text-align: center;
   height: 250px;
+}
+.movie-display-section h2 {
+  color: #312828;
+  background-color:hsl(124, 42%, 38%);
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .director-actor-bio-section {
