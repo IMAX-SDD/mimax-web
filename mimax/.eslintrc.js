@@ -21,5 +21,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-dynamic-require': 'off',
     'global-require': 'off',
+    'linebreak-style': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };
