@@ -24,5 +24,7 @@ module.exports = {
     'global-require': 'off',
     'no-console': 'off',
     'no-useless-concat': 'off',
+    'linebreak-style': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };

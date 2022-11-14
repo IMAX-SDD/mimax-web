@@ -12,7 +12,6 @@ function MoviesPageMain() {
 
   function setMovieProviderDetails(name) {
     const sources = name.US.flatrate;
-    console.log(sources);
     if (sources.length > 0) {
       setMovieProvider(sources[0].provider_name);
     } else {
@@ -21,7 +20,7 @@ function MoviesPageMain() {
   }
 
   const getProvider = (id) => {
-    const link = 'https://api.themoviedb.org/3/movie/' + id.toString() + '/watch/providers?api_key=9e6293836bcabd02d80d27ccca8eb072';
+    const link = `https://api.themoviedb.org/3/movie/${id.toString()}/watch/providers?api_key=9e6293836bcabd02d80d27ccca8eb072`;
     fetch(link, { method: 'GET' })
       // Parsing the data into a JavaScript object
       .then((data) => data.json())
@@ -48,7 +47,6 @@ function MoviesPageMain() {
   };
 
   useEffect(() => {
-    console.log(searchParams.get('movie'));
     callAPI(searchParams.get('movie'));
   }, []);
 
@@ -59,7 +57,8 @@ function MoviesPageMain() {
         <h2>{movieTitle}</h2>
         <p>{movieSynopsis}</p>
         <h3>{movieScore}</h3>
-        <h3>Provider:
+        <h3>
+          Provider:
           {movieProvider}
         </h3>
       </div>
