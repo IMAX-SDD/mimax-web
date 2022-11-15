@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
-
 import ActorsPageMain from '../ActorsPage/ActorsPageMain';
 import DirectorsPageMain from '../DirectorsPage/DirectorsPageMain';
 import HomePageMain from './HomePageMain';
