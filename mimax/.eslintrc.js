@@ -26,6 +26,6 @@ module.exports = {
     'no-useless-concat': 'off',
     'linebreak-style': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    "no-trailing-spaces": 'off', 
+    'no-trailing-spaces': 'off', 
   },
 };
