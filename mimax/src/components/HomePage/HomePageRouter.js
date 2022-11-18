@@ -1,13 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
-
 import ActorsPageMain from '../ActorsPage/ActorsPageMain';
 import DirectorsPageMain from '../DirectorsPage/DirectorsPageMain';
 import HomePageMain from './HomePageMain';
 import MoviesPageMain from '../MoviesPage/MoviesPageMain';
 import Navbar from '../Header/Navbar';
-import TVShowsPageMain from '../TVShowsPage/TVShowsPageMain';
 import MoviesListMain from '../MoviesList/MoviesListMain';
 import TVListMain from '../TVList/TVListMain';
 
