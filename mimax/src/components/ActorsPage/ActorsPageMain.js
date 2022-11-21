@@ -17,7 +17,7 @@ function ActorsPageMain() {
   // set movie details with title, synopsis, overview and score
   function setActorDetails(json) {
     setActorName(json.name);
-    setActorPopularity(json.popularity);
+    setActorPopularity(parseInt(json.popularity, 10));
 
     const numOfWorks = json.known_for.length; 
     const popularWorks = []; 
