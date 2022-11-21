@@ -8,7 +8,7 @@ function MoviesListMain() {
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
-    for (let i = 0; i < json.length; i += 1) {
+    for (let i = 6; i > -1; i -= 1) {
       movieTitle.push(json[i].original_title);
       movieSynopsis.push(json[i].overview);
       movieScore.push(`Score ${json[i].vote_average}`);
@@ -35,14 +35,14 @@ function MoviesListMain() {
   }, []);
 
   const reSort = () => {
-    window.open('http://localhost:3000/movieslistreverse', '_self');
+    window.open('http://localhost:3000/movieslist', '_self');
   };
 
   return (
     <div className="main row">
       <div className="movie-display-section">
         <h1>Top 7 Movies</h1>
-        <button type="submit" onClick={() => reSort()}>Sort By Worst Score</button>
+        <button type="submit" onClick={() => reSort()}>Sort By Best Score</button>
         <div className="column">
           <h2>{movieTitle[0]} ({movieScore[0]})</h2>
           <p>{movieSynopsis[0]}</p>

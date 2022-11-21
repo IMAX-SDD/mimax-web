@@ -32,7 +32,7 @@ function MoviesPageMain() {
   function setMovieDetails(json) {
     setMovieTitle(json.original_title);
     setMovieSynopsis(json.overview);
-    setMovieScore(`Score ${json.vote_average}`);
+    setMovieScore(`IMDB Score: ${json.vote_average}`);
     getProvider(json.id);
   }
 
@@ -58,7 +58,7 @@ function MoviesPageMain() {
         <p>{movieSynopsis}</p>
         <h3>{movieScore}</h3>
         <h3>
-          Provider:
+          Provider: 
           {movieProvider}
         </h3>
       </div>
