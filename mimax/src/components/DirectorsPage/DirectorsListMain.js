@@ -3,7 +3,6 @@ import { React, useEffect, useState } from 'react';
 function formatting(actorsList) {
   return (
     <div className="movie-display-section">
-      <h1>Top Directors</h1>
       <div className="column">
         <h2>{actorsList[0].name} (Popularity {actorsList[0].popularity})</h2>
         <p>{actorsList[0].work}</p>
@@ -63,7 +62,7 @@ function DirectorsListMain() {
     for (let index = 0; index < 6; index += 1) {
       const tmpObj = {
         name: json[index].name, 
-        popularity: json[index].popularity,
+        popularity: parseInt(json[index].popularity, 10),
         work: parseWork(json[index].known_for),
       }; 
       tmpList.push(tmpObj);

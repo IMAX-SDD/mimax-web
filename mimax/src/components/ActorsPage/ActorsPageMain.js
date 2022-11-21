@@ -9,6 +9,7 @@ function ActorsPageMain() {
   const [actorPopularity, setActorPopularity] = useState('');
   const [actorKnownFor, setActorKnownFor] = useState('');
   const topFeatured = ActorsListMain(); 
+  const [searchCheck, setSearchCheck] = useState(false);
 
   function setSearch(e) {
     setTerm(e.target.value);
@@ -17,7 +18,7 @@ function ActorsPageMain() {
   // set movie details with title, synopsis, overview and score
   function setActorDetails(json) {
     setActorName(json.name);
-    setActorPopularity(json.popularity);
+    setActorPopularity(parseInt(json.popularity, 10));
 
     const numOfWorks = json.known_for.length; 
     const popularWorks = []; 
@@ -43,20 +44,29 @@ function ActorsPageMain() {
       .then((data) => data.json())
       // Displaying the stringified data in an alert popup
       .then((json) => setActorDetails(json.results[0]));
+    setSearchCheck(true);
   };
 
   return (
     <div className="main">
       <div className="movie-display-section">
-        <h1>Actors Page</h1>
-        <input type="search" placeholder="Search Actors" onChange={setSearch} className="search-field" />
+        <br />
+        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Actors Page</h1>
+        <input type="search" placeholder="Search Actors/Actresses" onChange={setSearch} className="search-field" />
         <button type="submit" onClick={callAPI}>
           <i className="fa fa-search fa-lg" />
         </button>
-        <h2>{actorName}</h2> 
-        <p>Actor Popularity: {actorPopularity}</p>
-        <h3>Popular Works: {actorKnownFor}</h3>
+        <div>
+          {searchCheck
+            ? [
+              <h2>{actorName}</h2>,
+              <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>,
+              <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>,
+            ]
+            : null }
+        </div>
       </div>
+      <br />
       <div className="movie-display-section">
         <div>{topFeatured}</div>
       </div>

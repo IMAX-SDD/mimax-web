@@ -24,6 +24,12 @@ function HomePageMain() {
     window.open(url + term, '_blank', 'noopener,noreferrer');
   };
 
+  function handlePress(e) {
+    if (e === 13) {
+      open('http://localhost:3000/movies?movie=');
+    }
+  }
+
   // display of movies function with a carousel-like viewing
   function displayMovies(movieData) {
     return (
@@ -53,7 +59,7 @@ function HomePageMain() {
   return (
     <div className="main">
       <div className="movie-display-section">
-        <input type="search" placeholder="Search Movies" onChange={setSearch} className="search-field" />
+        <input type="search" placeholder="Search Movies" onKeyPress={(e) => handlePress(e)} onChange={setSearch} className="search-field" />
         <button type="submit" onClick={() => open('http://localhost:3000/movies?movie=')}>
           <i className="fa fa-search fa-lg" />
         </button>
