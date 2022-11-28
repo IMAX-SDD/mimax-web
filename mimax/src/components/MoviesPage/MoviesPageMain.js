@@ -8,7 +8,13 @@ function MoviesPageMain() {
   const [movieScore, setMovieScore] = useState('');
   const [movieProvider, setMovieProvider] = useState('');
   const [searchParams] = useSearchParams();
-  // const [movieImgLink, setMovieImgLink] = useState('');
+  const [movieImgLink, setMovieImgLink] = useState('');
+
+  function setPosterDetails(data) {
+    console.log(data);
+    setMovieImgLink(data.Poster);
+    console.log(movieImgLink);
+  }
 
   function setMovieProviderDetails(name) {
     const sources = name.US.flatrate;
@@ -28,12 +34,22 @@ function MoviesPageMain() {
       .then((json) => setMovieProviderDetails(json.results));
   };
 
+  const getPoster = (name) => {
+    const link = `http://www.omdbapi.com/?t=${name}&apikey=acae3f03`;
+    fetch(link, { method: 'GET' })
+      // Parsing the data into a JavaScript object
+      .then((data) => data.json())
+      // Displaying the stringified data in an alert popup
+      .then((json) => setPosterDetails(json));
+  };
+
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
     setMovieTitle(json.original_title);
     setMovieSynopsis(json.overview);
     setMovieScore(`IMDB Score: ${json.vote_average}`);
     getProvider(json.id);
+    getPoster(json.original_title);
   }
 
   // API call to TMDB
@@ -55,6 +71,7 @@ function MoviesPageMain() {
       <div className="movie-display-section">
         <h1>Movie Page</h1>
         <h2>{movieTitle}</h2>
+        <img alt="movie poster" src={movieImgLink} />
         <p>{movieSynopsis}</p>
         <h3>{movieScore}</h3>
         <h3>
