@@ -25,8 +25,9 @@ function HomePageMain() {
   };
 
   function handlePress(e) {
-    if (e === 13) {
-      open('http://localhost:3000/movies?movie=');
+    const url = 'http://localhost:3000/movies?movie=';
+    if (e.keyCode === 13) {
+      window.open(url + term, '_blank', 'noopener,noreferrer');
     }
   }
 
@@ -59,7 +60,7 @@ function HomePageMain() {
   return (
     <div className="main">
       <div className="movie-display-section">
-        <input type="search" placeholder="Search Movies" onKeyPress={(e) => handlePress(e)} onChange={setSearch} className="search-field" />
+        <input type="search" placeholder="Search Movies" onKeyDown={(e) => handlePress(e)} onChange={setSearch} className="search-field" />
         <button type="submit" onClick={() => open('http://localhost:3000/movies?movie=')}>
           <i className="fa fa-search fa-lg" />
         </button>
