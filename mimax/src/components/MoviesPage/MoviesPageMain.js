@@ -9,11 +9,12 @@ function MoviesPageMain() {
   const [movieProvider, setMovieProvider] = useState('');
   const [searchParams] = useSearchParams();
   const [movieImgLink, setMovieImgLink] = useState('');
+  const [movieAgeRating, setMovieAgeRating] = useState('');
 
-  function setPosterDetails(data) {
+  function setOMDBDetails(data) {
     console.log(data);
     setMovieImgLink(data.Poster);
-    console.log(movieImgLink);
+    setMovieAgeRating(data.Rated);
   }
 
   function setMovieProviderDetails(name) {
@@ -40,7 +41,7 @@ function MoviesPageMain() {
       // Parsing the data into a JavaScript object
       .then((data) => data.json())
       // Displaying the stringified data in an alert popup
-      .then((json) => setPosterDetails(json));
+      .then((json) => setOMDBDetails(json));
   };
 
   // set movie details with title, synopsis, overview and score
@@ -77,6 +78,10 @@ function MoviesPageMain() {
         <h3>
           Provider: 
           {movieProvider}
+        </h3>
+        <h3>
+          Rated: 
+          {movieAgeRating}
         </h3>
       </div>
     </div>
