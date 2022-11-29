@@ -1,19 +1,14 @@
-import { React, useState } from 'react';
-import ActorsListMain from './ActorsListMain';
+import { React, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // directors page where main code/functionality happens
 // issue: have to fix up to tailor toward directors page
 function ActorsPageMain() {
-  const [term, setTerm] = useState('');
   const [actorName, setActorName] = useState('');
   const [actorPopularity, setActorPopularity] = useState('');
   const [actorKnownFor, setActorKnownFor] = useState('');
-  const topFeatured = ActorsListMain(); 
   const [searchCheck, setSearchCheck] = useState(false);
-
-  function setSearch(e) {
-    setTerm(e.target.value);
-  }
+  const [searchParams] = useSearchParams();
 
   // set movie details with title, synopsis, overview and score
   function setActorDetails(json) {
@@ -37,7 +32,7 @@ function ActorsPageMain() {
   }
 
   // API call to TMDB
-  const callAPI = () => {
+  const callAPI = (term) => {
     const link = `https://api.themoviedb.org/3/search/person?api_key=9e6293836bcabd02d80d27ccca8eb072&query=${term}`; 
     fetch(link, { method: 'GET' })
       // Parsing the data into a JavaScript object
@@ -47,15 +42,14 @@ function ActorsPageMain() {
     setSearchCheck(true);
   };
 
+  useEffect(() => {
+    callAPI(searchParams.get('actor'));
+  }, []);
+
   return (
     <div className="main">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Actors Page</h1>
-        <input type="search" placeholder="Search Actors/Actresses" onChange={setSearch} className="search-field" />
-        <button type="submit" onClick={callAPI}>
-          <i className="fa fa-search fa-lg" />
-        </button>
         <div>
           {searchCheck
             ? [
@@ -67,9 +61,6 @@ function ActorsPageMain() {
         </div>
       </div>
       <br />
-      <div className="movie-display-section">
-        <div>{topFeatured}</div>
-      </div>
     </div>
   );
 }

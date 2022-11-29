@@ -9,6 +9,7 @@ import Navbar from '../Header/Navbar';
 import MoviesListMain from '../MoviesList/MoviesListMain';
 import MoviesListReverse from '../MoviesListReverse/MoviesListReverseMain';
 import TVListMain from '../TVList/TVListMain';
+import TVShowsPageMain from '../TVShowsPage/TVShowsPageMain';
 
 // routing for home page
 // do we need className="Homepage", looks like we don't?
@@ -24,6 +25,7 @@ function HomePageRouter() {
           <Route path="/movieslist" element={<MoviesListMain />} />
           <Route path="/movies" element={<MoviesPageMain />} />
           <Route path="/tvlist" element={<TVListMain />} />
+          <Route path="/tvshows" element={<TVShowsPageMain />} />
           <Route path="/movieslistreverse" element={<MoviesListReverse />} />
         </Routes>
       </Router>
