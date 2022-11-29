@@ -26,7 +26,7 @@ function Navbar() {
           <a href="/tvlist">TV Shows</a>
         </li>
         <li>
-          <a href="/actors">Actors</a>
+          <a href="/actorslist">Actors</a>
         </li>
         <li>
           <a href="/directors">Directors</a>
