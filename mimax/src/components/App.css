@@ -244,5 +244,30 @@ Carousel.indicatorLabels {
   color: #312828;
 }
 
+.fadein img{
+  opacity: 0.6;
+  transition: 0.3s ease;
+}
+  
+.fadein img:hover{
+  opacity: 1;
+  transition: 0.3s ease;
+}
 
+.boxed {
+  position: fixed;
+  top: 26%;
+  left: 20%;
+  margin-top: -50px;
+  margin-left: -100px;
+  width: 50rem;
+  height: 45rem;
+  background-color: hsl(116, 74%, 27%);
+  color: #000000;
+  padding: 1%;
+  font-size: 1.6rem;
+  border-radius: 20px;
+  font-family: Inter, sans-serif;
+  text-align: center;
+}
 

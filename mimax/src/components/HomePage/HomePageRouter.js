@@ -10,6 +10,7 @@ import MoviesListReverse from '../MoviesListReverse/MoviesListReverseMain';
 import TVListMain from '../TVList/TVListMain';
 import TVShowsPageMain from '../TVShowsPage/TVShowsPageMain';
 import ActorsListMain from '../ActorsPage/ActorsListMain';
+import AboutUsMain from '../AboutUsPage/AboutUsMain';
 
 // routing for home page
 // do we need className="Homepage", looks like we don't?
@@ -27,6 +28,7 @@ function HomePageRouter() {
           <Route path="/tvlist" element={<TVListMain />} />
           <Route path="/tvshows" element={<TVShowsPageMain />} />
           <Route path="/movieslistreverse" element={<MoviesListReverse />} />
+          <Route path="/aboutus" element={<AboutUsMain />} />
         </Routes>
       </Router>
     </div>

@@ -27,5 +27,6 @@ module.exports = {
     'linebreak-style': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'no-trailing-spaces': 'off', 
+    'react/jsx-no-bind': 'off',
   },
 };
