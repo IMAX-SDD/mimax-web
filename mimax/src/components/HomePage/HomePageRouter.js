@@ -20,7 +20,7 @@ function HomePageRouter() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePageMain />} />
-          <Route path="/actors" element={<ActorsListMain />} />
+          <Route path="/actorslist" element={<ActorsListMain />} />
           <Route path="/directors" element={<DirectorsPageMain />} />
           <Route path="/movieslist" element={<MoviesListMain />} />
           <Route path="/movies" element={<MoviesPageMain />} />
