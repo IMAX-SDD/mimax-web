@@ -9,11 +9,13 @@ function ActorsPageMain() {
   const [actorKnownFor, setActorKnownFor] = useState('');
   const [searchCheck, setSearchCheck] = useState(false);
   const [searchParams] = useSearchParams();
+  const [actorImgLink, setActorImgLink] = useState('');
 
   // set movie details with title, synopsis, overview and score
   function setActorDetails(json) {
     setActorName(json.name);
     setActorPopularity(parseInt(json.popularity, 10));
+    setActorImgLink('https://image.tmdb.org/t/p/w500' + json.profile_path);
 
     const numOfWorks = json.known_for.length; 
     const popularWorks = []; 
@@ -54,6 +56,7 @@ function ActorsPageMain() {
           {searchCheck
             ? [
               <h2>{actorName}</h2>,
+              <img src={actorImgLink}></img>,
               <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>,
               <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>,
             ]
