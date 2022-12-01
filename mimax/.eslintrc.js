@@ -17,7 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['warning', 'windows'],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'import/no-unresolved': 'off',
     'import/no-dynamic-require': 'off',
@@ -28,5 +28,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'no-trailing-spaces': 'off', 
     'react/jsx-no-bind': 'off',
+    'prefer-arrow-callback': 'off',
+    'prefer-template': 'off',
   },
 };

@@ -77,7 +77,7 @@ function MoviesPageMain() {
   function setMovieDetails(json) {
     setMovieTitle(json.original_title);
     setMovieSynopsis(json.overview);
-    setMovieScore(`IMDB Score: ${json.vote_average}`);
+    setMovieScore(json.vote_average);
     getCast(json.id);
     getProvider(json.id);
     getPoster(json.original_title);
@@ -97,31 +97,67 @@ function MoviesPageMain() {
     callAPI(searchParams.get('movie'));
   }, []);
 
+  // Displays a movie's title,poster,IMDB score, rating, provider,
+  // and cast members
   return (
-    <div className="main">
+    <div className="movie-page-main">
       <div className="movie-display-section">
-        <h1>Movie Page</h1>
-        <h2>{movieTitle}</h2>
-        <img alt="movie poster" src={movieImgLink} />
-        <p>{movieSynopsis}</p>
-        <h3>{movieScore}</h3>
-        <h3>
-          Provider: 
-          {movieProvider}
-        </h3>
-        <h3>
-          Rated: 
-          {movieAgeRating}
-        </h3>
-        <h3>Cast:</h3>
-        <img src={castImages[0]} alt="cast member 1" />
-        <a href={castLinks[0]}>{castList[0]}</a>
-        <img src={castImages[1]} alt="cast member 2" />
-        <a href={castLinks[1]}>{castList[1]}</a>
-        <img src={castImages[2]} alt="cast member 3" />
-        <a href={castLinks[2]}>{castList[2]}</a>
-        <img src={castImages[3]} alt="cast member 4" />
-        <a href={castLinks[3]}>{castList[3]}</a>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h2>{movieTitle}</h2>
+              <img alt="movie poster" src={movieImgLink} />
+            </div>
+            <div className="col">
+              <h2>Synopsis</h2>
+              <p className="movie-page-synopsis">{movieSynopsis}</p>
+              <h3>
+                <h2>IMDB Score</h2>
+                {movieScore}
+              </h3>
+              <h3>
+                <h2>Provider</h2>
+                {movieProvider}
+              </h3>
+              <h3>
+                <h2>Rated</h2> 
+                {movieAgeRating}
+              </h3> 
+            </div>
+          </div>
+          
+          <div className="row">
+            <h2 style={{ marginTop: 30 }}>Cast:</h2>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[0]}>{castList[0]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[1]}>{castList[1]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[2]}>{castList[2]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[3]}>{castList[3]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
+            </div>
+          </div> 
+        </div>
       </div>
     </div>
   );

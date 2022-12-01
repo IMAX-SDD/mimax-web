@@ -70,7 +70,7 @@ function HomePageMain() {
     <div className="main">
       <div className="movie-display-section">
         <Form>
-          <Form.Group className="mb-3">
+          <Form.Group className="search-field">
             <Form.Select onChange={setSearchTypeForm}>
               <option value="movies">Movies</option>
               <option value="actors">Actors</option>
