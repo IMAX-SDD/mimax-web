@@ -1,8 +1,40 @@
 import { React, useEffect, useState } from 'react';
+import {
+  Row, Col, Form,
+} from 'react-bootstrap';
 
 // movies page where main code/functionality happens
 function MoviesListMain() {
   const [term, setTerm] = useState('');
+  const [searchType, setSearchType] = useState('movies');
+
+  function setSearch(e) {
+    setTerm(e.target.value);
+  }
+
+  function setSearchTypeForm(e) {
+    setSearchType(e.target.value);
+  }
+
+  function handlePress(e) {
+    let url = '';
+    if (searchType === 'movies') {
+      url = 'http://localhost:3000/movies?movie=';
+    } else if (searchType === 'actors') {
+      url = 'http://localhost:3000/actors?actor=';
+    } else {
+      url = 'http://localhost:3000/tvshows?show=';
+    }
+    
+    if (e.keyCode === 13) {
+      if (term.length > 0) {
+        window.open(url + term, '_blank', 'noopener,noreferrer');
+      } else {
+        window.alert('Please enter a valid search'); // eslint-disable-line no-alert
+      }
+    }
+  }
+
   const [movieTitle, setMovieTitle] = useState([]);
   const [movieSynopsis, setMovieSynopsis] = useState([]);
   const [movieScore, setMovieScore] = useState([]);
@@ -10,20 +42,6 @@ function MoviesListMain() {
   const [searchedMovieSynopsis, setSearchedMovieSynopsis] = useState('');
   const [searchedMovieScore, setSearchedMovieScore] = useState('');
   const [searchCheck, setSearchCheck] = useState(false);
-
-  const open = (url) => {
-    window.open(url + term, '_blank', 'noopener,noreferrer');
-  };
-
-  function setSearch(e) {
-    setTerm(e.target.value);
-  }
-
-  function handlePress(e) {
-    if (e === 13) {
-      open('http://localhost:3000/movies?movie=');
-    }
-  }
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
@@ -79,10 +97,24 @@ function MoviesListMain() {
       <div className="movie-display-section">
         <br />
         <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Movies Page</h1>
-        <input type="search" placeholder="Search Movies" onKeyPress={(e) => handlePress(e)} onChange={setSearch} className="search-field" />
-        <button type="submit" onClick={() => callAPI(false)}>
-          <i className="fa fa-search fa-lg" />
-        </button>
+        <div className="search-field">
+          <Form>
+            <Row>
+              <Col xs={2}>
+                {/* <Form.Group className="search-field"> */}
+                <Form.Select onChange={setSearchTypeForm}>
+                  <option value="movies">Movies</option>
+                  <option value="actors">Actors</option>
+                  <option value="tvshows">TV Shows</option>
+                </Form.Select>
+                {/* </Form.Group> */}
+              </Col>
+              <Col>
+                <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
+              </Col>
+            </Row>
+          </Form>
+        </div>
         <div>
           {searchCheck
             ? [
