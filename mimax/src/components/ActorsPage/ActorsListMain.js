@@ -1,4 +1,7 @@
 import { React, useEffect, useState } from 'react';
+import {
+  Row, Col, Form,
+} from 'react-bootstrap';
 
 function formatting(actorsList) {
   return (
@@ -41,16 +44,37 @@ function formatting(actorsList) {
 
 // actors list where main code/functionality happens
 function ActorsListMain() {
-  const [actorName, setActorName] = useState('');
-  const [actorPopularity, setActorPopularity] = useState('');
-  const [actorKnownFor, setActorKnownFor] = useState('');
-  const [term, setTerm] = useState('');
+  const [actorName] = useState('');
+  const [actorPopularity] = useState('');
+  const [actorKnownFor] = useState('');
   const [actorsList, setActorsList] = useState([]);
   const [filled, setFilled] = useState(false);
-  const [searchCheck, setSearchCheck] = useState(false);
+  const [searchCheck] = useState(false);
+
+  const [term, setTerm] = useState('');
+  const [searchType, setSearchType] = useState('movies');
 
   function setSearch(e) {
     setTerm(e.target.value);
+  }
+
+  function setSearchTypeForm(e) {
+    setSearchType(e.target.value);
+  }
+
+  function handlePress(e) {
+    let url = '';
+    if (searchType === 'movies') {
+      url = 'http://localhost:3000/movies?movie=';
+    } else if (searchType === 'actors') {
+      url = 'http://localhost:3000/actors?actor=';
+    } else {
+      url = 'http://localhost:3000/tvshows?show=';
+    }
+    
+    if (e.keyCode === 13) {
+      window.open(url + term, '_blank', 'noopener,noreferrer');
+    }
   }
   // function to parse featured work
   function parseWork(input) {
@@ -69,26 +93,6 @@ function ActorsListMain() {
     }
     return result;
   }
-
-  function setActorDetailsAlt(json) {
-    setActorName(json.name);
-    setActorPopularity(parseInt(json.popularity, 10));
-
-    const numOfWorks = json.known_for.length; 
-    const popularWorks = []; 
-    for (let index = 0; index < numOfWorks; index += 1) {
-      if (!json.known_for[index].original_title) { 
-        popularWorks.push(json.known_for[index].original_name);
-      } else {
-        popularWorks.push(json.known_for[index].original_title);
-      }
-    }
-
-    for (let index = 0; index < numOfWorks - 1; index += 1) {
-      popularWorks[index] = `${popularWorks[index]}, `; 
-    }
-    setActorKnownFor(popularWorks);
-  } 
 
   // set movie details with name, popularity, overview and score
   function setActorDetails(json) {
@@ -114,17 +118,6 @@ function ActorsListMain() {
       .then((json) => setActorDetails(json.results));
   };
 
-  // API call to TMDB
-  const callAPIAlt = () => {
-    const link = `https://api.themoviedb.org/3/search/person?api_key=9e6293836bcabd02d80d27ccca8eb072&query=${term}`; 
-    fetch(link, { method: 'GET' })
-      // Parsing the data into a JavaScript object
-      .then((data) => data.json())
-      // Displaying the stringified data in an alert popup
-      .then((json) => setActorDetailsAlt(json.results[0]));
-    setSearchCheck(true);
-  };
-
   useEffect(() => {
     setActorsList([]);
     setFilled(false);
@@ -135,10 +128,24 @@ function ActorsListMain() {
     <div className="main row">
       <div className="movie-display-section">
         <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Actors Page</h1>
-        <input type="search" placeholder="Search Actors/Actresses" onChange={setSearch} className="search-field" />
-        <button type="submit" onClick={callAPIAlt}>
-          <i className="fa fa-search fa-lg" />
-        </button>
+        <div className="search-field">
+          <Form>
+            <Row>
+              <Col xs={2}>
+                {/* <Form.Group className="search-field"> */}
+                <Form.Select onChange={setSearchTypeForm}>
+                  <option value="movies">Movies</option>
+                  <option value="actors">Actors</option>
+                  <option value="tvshows">TV Shows</option>
+                </Form.Select>
+                {/* </Form.Group> */}
+              </Col>
+              <Col>
+                <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
+              </Col>
+            </Row>
+          </Form>
+        </div>
         <div>
           {searchCheck
             ? [
