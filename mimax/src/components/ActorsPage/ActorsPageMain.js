@@ -55,12 +55,25 @@ function ActorsPageMain() {
         <div>
           {searchCheck
             ? [
-              <h2>{actorName}</h2>,
-              <img src={actorImgLink}></img>,
-              <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>,
-              <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>,
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <h2>{actorName}</h2>
+                    <img className="actor-photo" alt="actor" src={actorImgLink} />
+                  </div>
+                  <div className="col">
+                    <h2>Popular Works</h2>
+                    <p className="actor-popular-works">{actorKnownFor}</p>
+                    <h3>
+                      <h2>Actor Popularity</h2>
+                      {actorPopularity}
+                    </h3>
+                  </div>
+                </div>
+              </div>,
             ]
             : null }
+          
         </div>
       </div>
       <br />

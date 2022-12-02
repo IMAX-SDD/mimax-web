@@ -69,16 +69,24 @@ function HomePageMain() {
   return (
     <div className="main">
       <div className="movie-display-section">
-        <Form>
-          <Form.Group className="search-field">
-            <Form.Select onChange={setSearchTypeForm}>
-              <option value="movies">Movies</option>
-              <option value="actors">Actors</option>
-              <option value="tvshows">TV Shows</option>
-            </Form.Select>
-            <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
-          </Form.Group>
-        </Form>
+        <div className="search-field">
+          <Form>
+            <Row>
+              <Col xs={2}>
+                {/* <Form.Group className="search-field"> */}
+                <Form.Select onChange={setSearchTypeForm}>
+                  <option value="movies">Movies</option>
+                  <option value="actors">Actors</option>
+                  <option value="tvshows">TV Shows</option>
+                </Form.Select>
+                {/* </Form.Group> */}
+              </Col>
+              <Col>
+                <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
+              </Col>
+            </Row>
+          </Form>
+        </div>
 
         <section className="movie-list">
           <Container>

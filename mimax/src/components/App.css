@@ -189,7 +189,7 @@ body {
 
 .search-field {
   width: 100%;
-  max-width: 110em;
+  max-width: 1000px;
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -273,6 +273,20 @@ Carousel.indicatorLabels {
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 50px;
+}
+
+/* ActorPageMain =================================*/
+.actor-photo {
+  position: flex;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.actor-popular-works {
+  font-size: 25px;
 }
 
 /* About Us =================================*/
