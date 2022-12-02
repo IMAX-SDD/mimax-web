@@ -104,6 +104,7 @@ function MoviesPageMain() {
       <div className="movie-display-section">
         <div className="container">
           <div className="row">
+            
             <div className="col">
               <h2>{movieTitle}</h2>
               <img alt="movie poster" src={movieImgLink} />
@@ -156,6 +157,7 @@ function MoviesPageMain() {
               </h3>
               <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
             </div>
+
           </div> 
         </div>
       </div>

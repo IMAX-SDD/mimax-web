@@ -60,7 +60,7 @@ function TVShowsPageMain() {
   function setTVDetails(json) {
     setTVTitle(json[0].name);
     setTVSynopsis(json[0].overview);
-    setTVScore(`Score ${json[0].vote_average}`);
+    setTVScore(json[0].vote_average);
     getCast(json[0].id);
     getPoster(json[0].name);
   }
@@ -79,42 +79,62 @@ function TVShowsPageMain() {
     callAPI(searchParams.get('show'));
   }, []);
 
+  // Displays a TV Show's title, poster, score, rating,
+  // and cast members
   return (
-    <div className="main">
+    <div className="TVShow-page-main">
       <div className="movie-display-section">
-        <h2>{tvTitle}</h2>
-        <img src={showImgLink} alt="show poster" />
-        <h3>Rating: {showRating}</h3>
-        <p>{tvSynopsis}</p>
-        <h3>{tvScore}</h3>
-        <div className="row">
-          <h2 style={{ marginTop: 30 }}>Cast:</h2>
-          <div className="col">
-            <h3>
-              <a href={castLinks[0]}>{castList[0]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
-          </div>
+        <div className="container">
+          <div className="row">
 
-          <div className="col">
-            <h3>
-              <a href={castLinks[1]}>{castList[1]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
-          </div>
+            <div className="col">
+              <h2>{tvTitle}</h2>
+              <img alt="show poster" src={showImgLink} />
+            </div>
+            <div className="col">
+              <h2>Synopsis</h2>
+              <p className="TVShow-page-synopsis">{tvSynopsis}</p>
+              <h3>
+                <h2>Score</h2>
+                {tvScore}
+              </h3>
+              <h3>
+                <h2>Rated</h2>
+                {showRating}
+              </h3>
+            </div>
+          </div> 
 
-          <div className="col">
-            <h3>
-              <a href={castLinks[2]}>{castList[2]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
-          </div>
+          <div className="row">
+            <h2 style={{ marginTop: 30 }}>Cast:</h2>
 
-          <div className="col">
-            <h3>
-              <a href={castLinks[3]}>{castList[3]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
+            <div className="col">
+              <h3>
+                <a href={castLinks[0]}>{castList[0]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[1]}>{castList[1]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[2]}>{castList[2]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[3]}>{castList[3]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
+            </div>
           </div>
         </div> 
       </div>

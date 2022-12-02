@@ -275,6 +275,24 @@ Carousel.indicatorLabels {
   margin-bottom: 50px;
 }
 
+/* TVShowPageMain =================================*/
+.TVShow-page-main {
+  padding: 20px;
+}
+
+.TVShow-page-synopsis {
+  font-size: 25px;
+}
+
+.cast-photo {
+  position: flex;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
 /* ActorPageMain =================================*/
 .actor-photo {
   position: flex;
