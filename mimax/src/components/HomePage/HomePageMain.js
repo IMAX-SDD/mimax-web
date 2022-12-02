@@ -55,6 +55,7 @@ function HomePageMain() {
                 />
                 <Card.Body>
                   <Card.Title className="movie-title">{item.title}</Card.Title>
+                  <br />
                 </Card.Body>
               </Card>
             </Carousel.Item>

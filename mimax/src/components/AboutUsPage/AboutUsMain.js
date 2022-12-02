@@ -1,5 +1,6 @@
 import { React } from 'react';
 
+// About Us page
 function AboutUsMain() {
   return (
     <div className="boxed">

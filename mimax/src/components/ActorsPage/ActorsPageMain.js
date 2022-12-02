@@ -1,17 +1,15 @@
 import { React, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-// directors page where main code/functionality happens
-// issue: have to fix up to tailor toward directors page
+// main actors page where main code/functionality happens
 function ActorsPageMain() {
   const [actorName, setActorName] = useState('');
   const [actorPopularity, setActorPopularity] = useState('');
   const [actorKnownFor, setActorKnownFor] = useState('');
-  const [searchCheck, setSearchCheck] = useState(false);
   const [searchParams] = useSearchParams();
   const [actorImgLink, setActorImgLink] = useState('');
 
-  // set movie details with title, synopsis, overview and score
+  // set details with actor name, popular works, popularity
   function setActorDetails(json) {
     setActorName(json.name);
     setActorPopularity(parseInt(json.popularity, 10));
@@ -41,7 +39,6 @@ function ActorsPageMain() {
       .then((data) => data.json())
       // Displaying the stringified data in an alert popup
       .then((json) => setActorDetails(json.results[0]));
-    setSearchCheck(true);
   };
 
   useEffect(() => {
@@ -53,14 +50,10 @@ function ActorsPageMain() {
       <div className="movie-display-section">
         <br />
         <div>
-          {searchCheck
-            ? [
-              <h2>{actorName}</h2>,
-              <img src={actorImgLink}></img>,
-              <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>,
-              <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>,
-            ]
-            : null }
+          <h2>{actorName}</h2>
+          <img style={{ height: '600px', width: '450px' }} src={actorImgLink}></img>
+          <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>
+          <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>
         </div>
       </div>
       <br />

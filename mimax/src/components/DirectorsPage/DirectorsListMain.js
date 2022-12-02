@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 
+// NOT IN USE RIGHT NOW SINCE UNABLE TO RETRIEVE DIRECTORS INFO
 function formatting(actorsList) {
   return (
     <div className="movie-display-section">

@@ -30,5 +30,9 @@ module.exports = {
     'react/jsx-no-bind': 'off',
     'prefer-arrow-callback': 'off',
     'prefer-template': 'off',
+    'jsx-a11y/alt-text': 'off',
+    'react/self-closing-comp': 'off',
+    'func-names': 'off',
+    'no-shadow': 'off',
   },
 };
