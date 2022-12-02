@@ -11,28 +11,34 @@ function formatting(actorsList) {
       <h1 style={{ fontWeight: 'bolder' }}>Top Actors/Actresses</h1>
       <div className="column">
         <h2>{actorsList[0].name} (Popularity {actorsList[0].popularity})</h2>
+        <img src={actorsList[0].imgLink} className="cast-photo" alt="actor poster" />
         <p>{actorsList[0].work}</p>
         <br />
         <br />
         <h2>{actorsList[1].name} (Popularity {actorsList[1].popularity})</h2>
+        <img src={actorsList[1].imgLink} className="cast-photo" alt="actor poster" />
         <p>{actorsList[1].work}</p>
         <br />
         <br />
         <h2>{actorsList[2].name} (Popularity {actorsList[2].popularity})</h2>
+        <img src={actorsList[2].imgLink} className="cast-photo" alt="actor poster" />
         <p>{actorsList[2].work}</p>
         
         <br />
       </div>
       <div className="column">
         <h2>{actorsList[3].name} (Popularity {actorsList[3].popularity})</h2>
+        <img src={actorsList[3].imgLink} className="cast-photo" alt="actor poster" />
         <p>{actorsList[3].work}</p>
         <br />
         <br />
         <h2>{actorsList[4].name} (Popularity {actorsList[4].popularity})</h2>
+        <img src={actorsList[4].imgLink} className="cast-photo" alt="actor poster" />
         <p>{actorsList[4].work}</p>
         <br />
         <br />
         <h2>{actorsList[5].name} (Popularity {actorsList[5].popularity})</h2>
+        <img src={actorsList[5].imgLink} className="cast-photo" alt="actor poster" />
         <p>{actorsList[5].work}</p>
         <br />
         <br />
@@ -80,6 +86,7 @@ function ActorsListMain() {
       }
     }
   }
+
   // function to parse featured work
   function parseWork(input) {
     const inputLength = input.length; 
@@ -106,6 +113,7 @@ function ActorsListMain() {
         name: json[index].name, 
         popularity: parseInt(json[index].popularity, 10),
         work: parseWork(json[index].known_for),
+        imgLink: 'https://image.tmdb.org/t/p/original' + json[index].profile_path,
       }; 
       tmpList.push(tmpObj);
     }

@@ -40,21 +40,25 @@ function MoviesListMain() {
   const [movieSynopsis, setMovieSynopsis] = useState([]);
   const [movieScore, setMovieScore] = useState([]);
   const [searchParams] = useSearchParams();
+  const [movieImgLinks, setMovieImgLinks] = useState([]);
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
     const mt = [];
     const ms = [];
     const mss = [];
+    const mil = [];
+    setMovieImgLinks([]);
     for (let i = 0; i < json.length; i += 1) {
       mt.push(json[i].original_title);
       ms.push(json[i].overview);
       mss.push(`Score ${json[i].vote_average}`); 
+      mil.push('https://image.tmdb.org/t/p/original' + json[i].poster_path);
     }
     setMovieTitle(mt);
     setMovieSynopsis(ms);
     setMovieScore(mss);
-    console.log(mt);
+    setMovieImgLinks(mil);
   }
 
   // API call to TMDB
@@ -75,6 +79,7 @@ function MoviesListMain() {
     setMovieTitle([]);
     setMovieSynopsis([]);
     setMovieScore([]);
+    setMovieImgLinks([]);
     callAPI(searchParams.get('genre'));
   }, []);
 
@@ -109,7 +114,7 @@ function MoviesListMain() {
         <h1 style={{ fontWeight: 'bolder' }}>Top Movies</h1>
         <Form>
           <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
-            <option value="">Click to Filter by Genre</option>
+            <option value="">All Genres</option>
             <option value="28">Action</option>
             <option value="12">Adventure</option>
             <option value="16">Animation</option>
@@ -134,32 +139,38 @@ function MoviesListMain() {
         <button type="submit" onClick={() => reSort()}>Sort By Worst Score</button>
         <div className="column">
           <h2>{movieTitle[0]} ({movieScore[0]})</h2>
+          <img className="cast-photo" src={movieImgLinks[0]} alt="movie poster" />
           <p>{movieSynopsis[0]}</p>
           <br />
           <br />
           <h2>{movieTitle[1]} ({movieScore[1]})</h2>
+          <img className="cast-photo" src={movieImgLinks[1]} alt="movie poster" />
           <p>{movieSynopsis[1]}</p>
           <br />
           <br />
           <h2>{movieTitle[2]} ({movieScore[2]})</h2>
+          <img className="cast-photo" src={movieImgLinks[2]} alt="movie poster" />
           <p>{movieSynopsis[2]}</p>
-
           <br />
         </div>
         <div className="column">
           <h2>{movieTitle[3]} ({movieScore[3]})</h2>
+          <img className="cast-photo" src={movieImgLinks[3]} alt="movie poster" />
           <p>{movieSynopsis[3]}</p>
           <br />
           <br />
           <h2>{movieTitle[4]} ({movieScore[4]})</h2>
+          <img className="cast-photo" src={movieImgLinks[4]} alt="movie poster" />
           <p>{movieSynopsis[4]}</p>
           <br />
           <br />
           <h2>{movieTitle[5]} ({movieScore[5]})</h2>
+          <img className="cast-photo" src={movieImgLinks[5]} alt="movie poster" />
           <p>{movieSynopsis[5]}</p>
           <br />
           <br />
           <h2>{movieTitle[6]} ({movieScore[6]})</h2>
+          <img className="cast-photo" src={movieImgLinks[6]} alt="movie poster" />
           <p>{movieSynopsis[6]}</p>
         </div>
         <br />
