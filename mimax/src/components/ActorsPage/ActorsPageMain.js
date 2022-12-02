@@ -50,27 +50,22 @@ function ActorsPageMain() {
       <div className="movie-display-section">
         <br />
         <div>
-          {searchCheck
-            ? [
-              <div className="container">
-                <div className="row">
-                  <div className="col">
-                    <h2>{actorName}</h2>
-                    <img className="actor-photo" alt="actor" src={actorImgLink} />
-                  </div>
-                  <div className="col">
-                    <h2>Popular Works</h2>
-                    <p className="actor-popular-works">{actorKnownFor}</p>
-                    <h3>
-                      <h2>Actor Popularity</h2>
-                      {actorPopularity}
-                    </h3>
-                  </div>
-                </div>
-              </div>,
-            ]
-            : null }
-          
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <h2>{actorName}</h2>
+                <img className="actor-photo" alt="actor" src={actorImgLink} />
+              </div>
+              <div className="col">
+                <h2>Popular Works</h2>
+                <p className="actor-popular-works">{actorKnownFor}</p>
+                <h3>
+                  <h2>Actor Popularity</h2>
+                  {actorPopularity}
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <br />
