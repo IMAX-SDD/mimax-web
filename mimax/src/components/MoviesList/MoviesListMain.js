@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react';
 import {
   Row, Col, Form,
 } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
 
 // movies page where main code/functionality happens
 function MoviesListMain() {
@@ -38,54 +39,43 @@ function MoviesListMain() {
   const [movieTitle, setMovieTitle] = useState([]);
   const [movieSynopsis, setMovieSynopsis] = useState([]);
   const [movieScore, setMovieScore] = useState([]);
-  const [searchedMovieTitle, setSearchedMovieTitle] = useState('');
-  const [searchedMovieSynopsis, setSearchedMovieSynopsis] = useState('');
-  const [searchedMovieScore, setSearchedMovieScore] = useState('');
-  const [searchCheck, setSearchCheck] = useState(false);
+  const [searchParams] = useSearchParams();
 
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
+    const mt = [];
+    const ms = [];
+    const mss = [];
     for (let i = 0; i < json.length; i += 1) {
-      movieTitle.push(json[i].original_title);
-      movieSynopsis.push(json[i].overview);
-      movieScore.push(`Score ${json[i].vote_average}`);
+      mt.push(json[i].original_title);
+      ms.push(json[i].overview);
+      mss.push(`Score ${json[i].vote_average}`); 
     }
-    setMovieTitle(movieTitle);
-    setMovieSynopsis(movieSynopsis);
-    setMovieScore(movieScore);
-  }
-
-  function setSearchMovieDetails(json) {
-    setSearchedMovieTitle(json.original_title);
-    setSearchedMovieSynopsis(json.overview);
-    setSearchedMovieScore(`IMDB Score: ${json.vote_average}`);
+    setMovieTitle(mt);
+    setMovieSynopsis(ms);
+    setMovieScore(mss);
+    console.log(mt);
   }
 
   // API call to TMDB
-  const callAPI = (flag) => {
-    if (flag) {
-      const link = 'https://api.themoviedb.org/3/movie/top_rated?api_key=9e6293836bcabd02d80d27ccca8eb072&with_original_language=en';
-      fetch(link, { method: 'GET' })
-        // Parsing the data into a JavaScript object
-        .then((data) => data.json())
-        // Displaying the stringified data in an alert popup
-        .then((json) => setMovieDetails(json.results));
-    } else {
-      const link = `https://api.themoviedb.org/3/search/movie?api_key=9e6293836bcabd02d80d27ccca8eb072&query='${term}'`;
-      fetch(link, { method: 'GET' })
-        // Parsing the data into a JavaScript object
-        .then((data) => data.json())
-        // Displaying the stringified data in an alert popup
-        .then((json) => setSearchMovieDetails(json.results[0]));
-      setSearchCheck(true);
-    }
+  const callAPI = (genre) => {
+    const link = `https://api.themoviedb.org/3/movie/top_rated?api_key=9e6293836bcabd02d80d27ccca8eb072&with_original_language=en&with_genres=${genre}`;
+    fetch(link, { method: 'GET' })
+      // Parsing the data into a JavaScript object
+      .then((data) => data.json())
+      // Displaying the stringified data in an alert popup
+      .then((json) => setMovieDetails(json.results));
   };
 
+  function setGenreFilterOption(e) {
+    window.location.href = 'http://localhost:3000/movieslist?genre=' + e.target.value;
+  }
+  
   useEffect(() => {
     setMovieTitle([]);
     setMovieSynopsis([]);
     setMovieScore([]);
-    callAPI(true);
+    callAPI(searchParams.get('genre'));
   }, []);
 
   const reSort = () => {
@@ -115,17 +105,32 @@ function MoviesListMain() {
             </Row>
           </Form>
         </div>
-        <div>
-          {searchCheck
-            ? [
-              <h2>{searchedMovieTitle}</h2>,
-              <p style={{ marginBottom: '5px' }}>{searchedMovieSynopsis}</p>,
-              <h3 style={{ fontSize: '20px' }}>{searchedMovieScore}</h3>,
-            ]
-            : null }
-        </div>
         <br />
         <h1 style={{ fontWeight: 'bolder' }}>Top Movies</h1>
+        <Form>
+          <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
+            <option value="">Click to Filter by Genre</option>
+            <option value="28">Action</option>
+            <option value="12">Adventure</option>
+            <option value="16">Animation</option>
+            <option value="35">Comedy</option>
+            <option value="80">Crime</option>
+            <option value="99">Documentary</option>
+            <option value="18">Drama</option>
+            <option value="10751">Family</option>
+            <option value="14">Fantasy</option>
+            <option value="36">History</option>
+            <option value="27">Horror</option>
+            <option value="10402">Music</option>
+            <option value="9648">Mystery</option>
+            <option value="10749">Romance</option>
+            <option value="878">Sci-Fi</option>
+            <option value="10770">TV Movie</option>
+            <option value="53">Thriller</option>
+            <option value="10752">War</option>
+            <option value="37">Western</option>
+          </Form.Select>
+        </Form>
         <button type="submit" onClick={() => reSort()}>Sort By Worst Score</button>
         <div className="column">
           <h2>{movieTitle[0]} ({movieScore[0]})</h2>
