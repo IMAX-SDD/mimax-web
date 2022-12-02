@@ -27,7 +27,11 @@ function TVListMain() {
     }
     
     if (e.keyCode === 13) {
-      window.open(url + term, '_blank', 'noopener,noreferrer');
+      if (term.length > 0) {
+        window.open(url + term, '_blank', 'noopener,noreferrer');
+      } else {
+        window.alert('Please enter a valid search'); // eslint-disable-line no-alert
+      }
     }
   }
 
