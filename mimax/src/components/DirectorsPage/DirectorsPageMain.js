@@ -2,7 +2,6 @@ import { React, useState } from 'react';
 // import DirectorsListMain from './DirectorsListMain';
 
 // directors page where main code/functionality happens
-// issue: have to fix up to tailor toward directors page
 function DirectorsPageMain() {
   const [term, setTerm] = useState('');
   const [directorName, setDirectorName] = useState('');
@@ -15,7 +14,7 @@ function DirectorsPageMain() {
     setTerm(e.target.value);
   }
 
-  // set movie details with title, synopsis, overview and score
+  // director details set
   function setDirectorDetails(json) {
     setDirectorName(json.name);
     setDirectorPopularity(parseInt(json.popularity, 10));

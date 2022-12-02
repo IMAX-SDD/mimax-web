@@ -118,6 +118,8 @@ body {
 .movie-display-section h2 {
   color: #312828;
   background-color:hsl(124, 42%, 38%);
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .column {
@@ -187,11 +189,12 @@ body {
 
 .search-field {
   width: 100%;
-  max-width: 500px;
-  height: 24px;
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: 0.8rem;
   margin-top: 40px;
-  margin-right: 1px;
   border-radius: 5px;
   margin-bottom: 30px;
 }
@@ -244,5 +247,61 @@ Carousel.indicatorLabels {
   color: #312828;
 }
 
+.fadein img{
+  opacity: 0.6;
+  transition: 0.3s ease;
+}
+  
+.fadein img:hover{
+  opacity: 1;
+  transition: 0.3s ease;
+}
 
+/* MoviePageMain =================================*/
+.movie-page-main {
+  padding: 20px;
+}
+
+.movie-page-synopsis {
+  font-size: 25px;
+}
+
+.cast-photo {
+  position: flex;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+/* ActorPageMain =================================*/
+.actor-photo {
+  position: flex;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.actor-popular-works {
+  font-size: 25px;
+}
+
+/* About Us =================================*/
+.boxed {
+  position: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: hsl(116, 74%, 27%);
+  color: #000000;
+  padding: 30px;
+  font-size: 1.6rem;
+  border-radius: 20px;
+  text-align: center;
+}
 

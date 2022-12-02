@@ -1,24 +1,19 @@
-import { React, useState } from 'react';
-import ActorsListMain from './ActorsListMain';
+import { React, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-// directors page where main code/functionality happens
-// issue: have to fix up to tailor toward directors page
+// main actors page where main code/functionality happens
 function ActorsPageMain() {
-  const [term, setTerm] = useState('');
   const [actorName, setActorName] = useState('');
   const [actorPopularity, setActorPopularity] = useState('');
   const [actorKnownFor, setActorKnownFor] = useState('');
-  const topFeatured = ActorsListMain(); 
-  const [searchCheck, setSearchCheck] = useState(false);
+  const [searchParams] = useSearchParams();
+  const [actorImgLink, setActorImgLink] = useState('');
 
-  function setSearch(e) {
-    setTerm(e.target.value);
-  }
-
-  // set movie details with title, synopsis, overview and score
+  // set details with actor name, popular works, popularity
   function setActorDetails(json) {
     setActorName(json.name);
     setActorPopularity(parseInt(json.popularity, 10));
+    setActorImgLink('https://image.tmdb.org/t/p/w500' + json.profile_path);
 
     const numOfWorks = json.known_for.length; 
     const popularWorks = []; 
@@ -37,39 +32,43 @@ function ActorsPageMain() {
   }
 
   // API call to TMDB
-  const callAPI = () => {
+  const callAPI = (term) => {
     const link = `https://api.themoviedb.org/3/search/person?api_key=9e6293836bcabd02d80d27ccca8eb072&query=${term}`; 
     fetch(link, { method: 'GET' })
       // Parsing the data into a JavaScript object
       .then((data) => data.json())
       // Displaying the stringified data in an alert popup
       .then((json) => setActorDetails(json.results[0]));
-    setSearchCheck(true);
   };
+
+  useEffect(() => {
+    callAPI(searchParams.get('actor'));
+  }, []);
 
   return (
     <div className="main">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Actors Page</h1>
-        <input type="search" placeholder="Search Actors/Actresses" onChange={setSearch} className="search-field" />
-        <button type="submit" onClick={callAPI}>
-          <i className="fa fa-search fa-lg" />
-        </button>
         <div>
-          {searchCheck
-            ? [
-              <h2>{actorName}</h2>,
-              <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>,
-              <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>,
-            ]
-            : null }
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <h2>{actorName}</h2>
+                <img className="actor-photo" alt="actor" src={actorImgLink} />
+              </div>
+              <div className="col">
+                <h2>Popular Works</h2>
+                <p className="actor-popular-works">{actorKnownFor}</p>
+                <h3>
+                  <h2>Actor Popularity</h2>
+                  {actorPopularity}
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <br />
-      <div className="movie-display-section">
-        <div>{topFeatured}</div>
-      </div>
     </div>
   );
 }

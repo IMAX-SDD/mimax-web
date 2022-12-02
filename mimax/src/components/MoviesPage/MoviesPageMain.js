@@ -8,7 +8,16 @@ function MoviesPageMain() {
   const [movieScore, setMovieScore] = useState('');
   const [movieProvider, setMovieProvider] = useState('');
   const [searchParams] = useSearchParams();
-  // const [movieImgLink, setMovieImgLink] = useState('');
+  const [movieImgLink, setMovieImgLink] = useState('');
+  const [movieAgeRating, setMovieAgeRating] = useState('');
+  const [castList, setCastList] = useState([]);
+  const [castImages, setCastImages] = useState([]);
+  const [castLinks, setCastLinks] = useState([]);
+
+  function setOMDBDetails(data) {
+    setMovieImgLink(data.Poster);
+    setMovieAgeRating(data.Rated);
+  }
 
   function setMovieProviderDetails(name) {
     const sources = name.US.flatrate;
@@ -17,6 +26,24 @@ function MoviesPageMain() {
     } else {
       setMovieProvider(name.US.buy[0].provider_name);
     }
+  }
+
+  function setCastDetails(data) {
+    const castListData = data.cast;
+    castListData.sort(function (a, b) {
+      return parseFloat(b.popularity) - parseFloat(a.popularity);
+    });
+    const cast = ['', '', '', ''];
+    const castImg = ['', '', '', ''];
+    for (let i = 0; i < 4; i += 1) {
+      console.log(castListData[i]);
+      cast[i] = castListData[i].name;
+      castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+      castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+    }
+    setCastList(cast);
+    setCastImages(castImg);
+    setCastLinks(castLinks);
   }
 
   const getProvider = (id) => {
@@ -28,12 +55,32 @@ function MoviesPageMain() {
       .then((json) => setMovieProviderDetails(json.results));
   };
 
+  const getPoster = (name) => {
+    const link = `http://www.omdbapi.com/?t=${name}&apikey=acae3f03`;
+    fetch(link, { method: 'GET' })
+      // Parsing the data into a JavaScript object
+      .then((data) => data.json())
+      // Displaying the stringified data in an alert popup
+      .then((json) => setOMDBDetails(json));
+  };
+
+  const getCast = (id) => {
+    const link = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=9e6293836bcabd02d80d27ccca8eb072`;
+    fetch(link, { method: 'GET' })
+      // Parsing the data into a JavaScript object
+      .then((data) => data.json())
+      // Displaying the stringified data in an alert popup
+      .then((json) => setCastDetails(json));
+  };
+
   // set movie details with title, synopsis, overview and score
   function setMovieDetails(json) {
     setMovieTitle(json.original_title);
     setMovieSynopsis(json.overview);
-    setMovieScore(`IMDB Score: ${json.vote_average}`);
+    setMovieScore(json.vote_average);
+    getCast(json.id);
     getProvider(json.id);
+    getPoster(json.original_title);
   }
 
   // API call to TMDB
@@ -50,17 +97,67 @@ function MoviesPageMain() {
     callAPI(searchParams.get('movie'));
   }, []);
 
+  // Displays a movie's title,poster,IMDB score, rating, provider,
+  // and cast members
   return (
-    <div className="main">
+    <div className="movie-page-main">
       <div className="movie-display-section">
-        <h1>Movie Page</h1>
-        <h2>{movieTitle}</h2>
-        <p>{movieSynopsis}</p>
-        <h3>{movieScore}</h3>
-        <h3>
-          Provider: 
-          {movieProvider}
-        </h3>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h2>{movieTitle}</h2>
+              <img alt="movie poster" src={movieImgLink} />
+            </div>
+            <div className="col">
+              <h2>Synopsis</h2>
+              <p className="movie-page-synopsis">{movieSynopsis}</p>
+              <h3>
+                <h2>IMDB Score</h2>
+                {movieScore}
+              </h3>
+              <h3>
+                <h2>Provider</h2>
+                {movieProvider}
+              </h3>
+              <h3>
+                <h2>Rated</h2> 
+                {movieAgeRating}
+              </h3> 
+            </div>
+          </div>
+          
+          <div className="row">
+            <h2 style={{ marginTop: 30 }}>Cast:</h2>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[0]}>{castList[0]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[1]}>{castList[1]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[2]}>{castList[2]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[3]}>{castList[3]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
+            </div>
+          </div> 
+        </div>
       </div>
     </div>
   );

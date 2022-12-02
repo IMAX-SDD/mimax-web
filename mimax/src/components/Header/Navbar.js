@@ -4,6 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 import logo from '../Images/Misc/logo.jpg';
+import githublogo from '../Images/Misc/githublogo.png';
 
 function Navbar() {
   const [toggleBar, setToggleBar] = React.useState(false);
@@ -25,12 +26,19 @@ function Navbar() {
           <a href="/tvlist">TV Shows</a>
         </li>
         <li>
-          <a href="/actors">Actors</a>
+          <a href="/actorslist">Actors</a>
         </li>
         <li>
           <a href="/directors">Directors</a>
         </li>
+        <li>
+          <a href="/aboutus">About Us</a>
+        </li>
+
       </ul>
+      <div className="fadein" style={{ position: 'absolute', bottom: '10px' }}>
+        <a href="https://github.com/IMAX-SDD/mimax-web" target="_blank" rel="noopener noreferrer"><img style={{ width: '100%', height: 'auto' }} src={githublogo} alt="githublogo" /></a>
+      </div>
     </div>
   );
 

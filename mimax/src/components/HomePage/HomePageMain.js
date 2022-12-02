@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import {
-  Container, Carousel, Row, Col, Card,
+  Container, Carousel, Row, Col, Card, Form,
 } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,18 +15,28 @@ import FeaturedDirector from './FeaturedActorDirectorData/DirectorData';
 function HomePageMain() {
   // set up variables for movie title, synopsis and score
   const [term, setTerm] = useState('');
+  const [searchType, setSearchType] = useState('movies');
 
   function setSearch(e) {
     setTerm(e.target.value);
   }
 
-  const open = (url) => {
-    window.open(url + term, '_blank', 'noopener,noreferrer');
-  };
+  function setSearchTypeForm(e) {
+    setSearchType(e.target.value);
+  }
 
   function handlePress(e) {
-    if (e === 13) {
-      open('http://localhost:3000/movies?movie=');
+    let url = '';
+    if (searchType === 'movies') {
+      url = 'http://localhost:3000/movies?movie=';
+    } else if (searchType === 'actors') {
+      url = 'http://localhost:3000/actors?actor=';
+    } else {
+      url = 'http://localhost:3000/tvshows?show=';
+    }
+    
+    if (e.keyCode === 13) {
+      window.open(url + term, '_blank', 'noopener,noreferrer');
     }
   }
 
@@ -45,6 +55,7 @@ function HomePageMain() {
                 />
                 <Card.Body>
                   <Card.Title className="movie-title">{item.title}</Card.Title>
+                  <br />
                 </Card.Body>
               </Card>
             </Carousel.Item>
@@ -59,10 +70,24 @@ function HomePageMain() {
   return (
     <div className="main">
       <div className="movie-display-section">
-        <input type="search" placeholder="Search Movies" onKeyPress={(e) => handlePress(e)} onChange={setSearch} className="search-field" />
-        <button type="submit" onClick={() => open('http://localhost:3000/movies?movie=')}>
-          <i className="fa fa-search fa-lg" />
-        </button>
+        <div className="search-field">
+          <Form>
+            <Row>
+              <Col xs={2}>
+                {/* <Form.Group className="search-field"> */}
+                <Form.Select onChange={setSearchTypeForm}>
+                  <option value="movies">Movies</option>
+                  <option value="actors">Actors</option>
+                  <option value="tvshows">TV Shows</option>
+                </Form.Select>
+                {/* </Form.Group> */}
+              </Col>
+              <Col>
+                <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
+              </Col>
+            </Row>
+          </Form>
+        </div>
 
         <section className="movie-list">
           <Container>
