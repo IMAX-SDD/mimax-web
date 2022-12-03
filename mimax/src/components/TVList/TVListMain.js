@@ -104,7 +104,7 @@ function TVListMain() {
     <div className="main">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>TV Shows Page</h1>
+        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Top TV Shows</h1>
         <div className="search-field">
           <Form>
             <Row>
@@ -120,34 +120,35 @@ function TVListMain() {
               <Col>
                 <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
               </Col>
+              <Col xs={2}>
+                <Form>
+                  <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
+                    <option value="">All Genres</option>
+                    <option value="10759">Action & Adventure</option>
+                    <option value="16">Animation</option>
+                    <option value="35">Comedy</option>
+                    <option value="80">Crime</option>
+                    <option value="99">Documentary</option>
+                    <option value="18">Drama</option>
+                    <option value="10751">Family</option>
+                    <option value="10762">Kids</option>
+                    <option value="9648">Mystery</option>
+                    <option value="10763">News</option>
+                    <option value="10764">Reality</option>
+                    <option value="10765">Sci-Fi & Fantasy</option>
+                    <option value="10766">Soap</option>
+                    <option value="10767">Talk</option>
+                    <option value="10768">War & Politics</option>
+                    <option value="37">Western</option>
+                  </Form.Select>
+                </Form>
+              </Col>
             </Row>
           </Form>
         </div>
         <br />
         <br />
-        <h1 style={{ fontWeight: 'bolder' }}>Top TV Shows</h1>
-        <Form>
-          <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
-            <option value="">All Genres</option>
-            <option value="10759">Action & Adventure</option>
-            <option value="16">Animation</option>
-            <option value="35">Comedy</option>
-            <option value="80">Crime</option>
-            <option value="99">Documentary</option>
-            <option value="18">Drama</option>
-            <option value="10751">Family</option>
-            <option value="10762">Kids</option>
-            <option value="9648">Mystery</option>
-            <option value="10763">News</option>
-            <option value="10764">Reality</option>
-            <option value="10765">Sci-Fi & Fantasy</option>
-            <option value="10766">Soap</option>
-            <option value="10767">Talk</option>
-            <option value="10768">War & Politics</option>
-            <option value="37">Western</option>
-          </Form.Select>
-        </Form>
-
+        
         <Row>
           {displayTopTVShows(1)}
           {displayTopTVShows(2)}

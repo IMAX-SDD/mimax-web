@@ -121,7 +121,7 @@ function MoviesListMain() {
     <div className="main row">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Movies Page</h1>
+        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Top Movies</h1>
         <div className="search-field">
           <Form>
             <Row>
@@ -137,35 +137,36 @@ function MoviesListMain() {
               <Col>
                 <Form.Control id="search-bar" type="search" placeholder="Search..." onKeyDown={(e) => handlePress(e)} onChange={setSearch} />
               </Col>
+              <Col xs={2}>
+                <Form>
+                  <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
+                    <option value="">All Genres</option>
+                    <option value="28">Action</option>
+                    <option value="12">Adventure</option>
+                    <option value="16">Animation</option>
+                    <option value="35">Comedy</option>
+                    <option value="80">Crime</option>
+                    {/* <option value="99">Documentary</option> */}
+                    <option value="18">Drama</option>
+                    <option value="10751">Family</option>
+                    <option value="14">Fantasy</option>
+                    <option value="36">History</option>
+                    <option value="27">Horror</option>
+                    <option value="10402">Music</option>
+                    <option value="9648">Mystery</option>
+                    <option value="10749">Romance</option>
+                    <option value="878">Sci-Fi</option>
+                    <option value="10770">TV Movie</option>
+                    <option value="53">Thriller</option>
+                    <option value="10752">War</option>
+                    <option value="37">Western</option>
+                  </Form.Select>
+                </Form>
+              </Col>
             </Row>
           </Form>
         </div>
         <br />
-        <h1 style={{ fontWeight: 'bolder' }}>Top Movies</h1>
-        <Form>
-          <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
-            <option value="">All Genres</option>
-            <option value="28">Action</option>
-            <option value="12">Adventure</option>
-            <option value="16">Animation</option>
-            <option value="35">Comedy</option>
-            <option value="80">Crime</option>
-            {/* <option value="99">Documentary</option> */}
-            <option value="18">Drama</option>
-            <option value="10751">Family</option>
-            <option value="14">Fantasy</option>
-            <option value="36">History</option>
-            <option value="27">Horror</option>
-            <option value="10402">Music</option>
-            <option value="9648">Mystery</option>
-            <option value="10749">Romance</option>
-            <option value="878">Sci-Fi</option>
-            <option value="10770">TV Movie</option>
-            <option value="53">Thriller</option>
-            <option value="10752">War</option>
-            <option value="37">Western</option>
-          </Form.Select>
-        </Form>
 
         <Row>
           {displayTopMovies(1)}
