@@ -7,14 +7,14 @@ const HorrorMovies = [
   },
   {
     title: 'Smile',
-    img: 'smile.jpg',
+    img: 'smile.jpeg',
     synopsis: "After witnessing a bizarre, traumatic incident involving a patient, Dr. Rose Cotter starts experiencing frightening occurrences that she can't explain. Rose must confront her troubling past in order to survive and escape her horrifying new reality.",
     score: 6.9,
   },
   {
-    title: 'The Black Phone',
-    img: 'the_black_phone.jpg',
-    synopsis: "After being abducted by a child killer and locked in a soundproof basement, a 13-year-old boy starts receiving calls on a disconnected phone from the killer's previous victims.",
+    title: 'Pearl',
+    img: 'pearl.jpeg',
+    synopsis: 'A young woman struggles to control her wild and dangerous impulses.',
     score: 7.0,
   },
 ];
