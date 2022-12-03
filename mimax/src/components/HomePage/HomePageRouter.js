@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
-import DirectorsPageMain from '../DirectorsPage/DirectorsPageMain';
+// import DirectorsPageMain from '../DirectorsPage/DirectorsPageMain';
 import HomePageMain from './HomePageMain';
 import MoviesPageMain from '../MoviesPage/MoviesPageMain';
 import Navbar from '../Header/Navbar';
@@ -24,7 +24,7 @@ function HomePageRouter() {
           <Route path="/" element={<HomePageMain />} />
           <Route path="/actors" element={<ActorsPageMain />} />
           <Route path="/actorslist" element={<ActorsListMain />} />
-          <Route path="/directors" element={<DirectorsPageMain />} />
+          {/* <Route path="/directors" element={<DirectorsPageMain />} /> */}
           <Route path="/movieslist" element={<MoviesListMain />} />
           <Route path="/movies" element={<MoviesPageMain />} />
           <Route path="/tvlist" element={<TVListMain />} />

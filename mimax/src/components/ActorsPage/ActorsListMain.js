@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react';
 import {
   Row, Col, Form,
 } from 'react-bootstrap';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 function formatting(actorsList) {
   return (
@@ -79,7 +80,7 @@ function ActorsListMain() {
     let url = '';
     if (searchType === 'movies') {
       url = 'http://localhost:3000/movies?movie=';
-    } else if (searchType === 'actors') {
+    } else if (searchType === 'people') {
       url = 'http://localhost:3000/actors?actor=';
     } else {
       url = 'http://localhost:3000/tvshows?show=';
@@ -122,6 +123,9 @@ function ActorsListMain() {
         work: parseWork(json[index].known_for),
         imgLink: 'https://image.tmdb.org/t/p/original' + json[index].profile_path,
       }; 
+      if (json[index].profile_path === null) {
+        tmpObj.imgLink = noImageAvailable;
+      }
       tmpList.push(tmpObj);
     }
     setActorsList(tmpList);
@@ -147,7 +151,7 @@ function ActorsListMain() {
     <div className="main row">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Actors Page</h1>
+        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>People Page</h1>
         <div className="search-field">
           <Form>
             <Row>
@@ -155,7 +159,7 @@ function ActorsListMain() {
                 {/* <Form.Group className="search-field"> */}
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
-                  <option selected value="actors">Actors</option>
+                  <option selected value="People">People</option>
                   <option value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}

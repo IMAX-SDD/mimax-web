@@ -26,11 +26,11 @@ function Navbar() {
           <a href="/tvlist">TV Shows</a>
         </li>
         <li>
-          <a href="/actorslist">Actors</a>
+          <a href="/actorslist">People</a>
         </li>
-        <li>
+        {/* <li>
           <a href="/directors">Directors</a>
-        </li>
+        </li> */}
         <li>
           <a href="/aboutus">About Us</a>
         </li>
