@@ -3,6 +3,7 @@ import {
   Row, Col, Form, Card,
 } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // movies page where main code/functionality happens
 function MoviesListMain() {
@@ -21,7 +22,7 @@ function MoviesListMain() {
     let url = '';
     if (searchType === 'movies') {
       url = 'http://localhost:3000/movies?movie=';
-    } else if (searchType === 'actors') {
+    } else if (searchType === 'people') {
       url = 'http://localhost:3000/actors?actor=';
     } else {
       url = 'http://localhost:3000/tvshows?show=';
@@ -53,7 +54,11 @@ function MoviesListMain() {
       mt.push(json[i].original_title);
       ms.push(json[i].overview);
       mss.push(`Score ${json[i].vote_average}`); 
-      mil.push('https://image.tmdb.org/t/p/original' + json[i].poster_path);
+      if (json[i].poster_path == null) {
+        mil.push(noImageAvailable);
+      } else {
+        mil.push('https://image.tmdb.org/t/p/original' + json[i].poster_path);
+      }
     }
     setMovieTitle(mt);
     // setMovieSynopsis(ms);
@@ -105,9 +110,11 @@ function MoviesListMain() {
     callAPI(searchParams.get('genre'));
   }, []);
 
-  // const reSort = () => {
-  //   window.open('http://localhost:3000/movieslistreverse', '_self');
-  // };
+  /* 
+  const reSort = () => {
+    window.open('http://localhost:3000/movieslistreverse', '_self');
+  };
+  */
 
   return (
     <div className="main row">
@@ -121,7 +128,7 @@ function MoviesListMain() {
                 {/* <Form.Group className="search-field"> */}
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
-                  <option value="actors">Actors</option>
+                  <option value="people">People</option>
                   <option value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}

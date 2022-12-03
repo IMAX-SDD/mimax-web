@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // tv shows page where main code/functionality happens
 // issue: have to fix up to tailor toward tv show page
@@ -15,8 +16,17 @@ function TVShowsPageMain() {
   const [castLinks, setCastLinks] = useState([]);
 
   function setOMDBDetails(data) {
-    setShowImgLink(data.Poster);
-    setShowAgeRating(data.Rated);
+    if (data.Poster === undefined) {
+      setShowImgLink(noImageAvailable);
+    } else {
+      setShowImgLink(data.Poster);
+    }
+
+    if (data.Rated === undefined) {
+      setShowAgeRating('N/A');
+    } else {
+      setShowAgeRating(data.Rated);
+    } 
   }
 
   function setCastDetails(data) {
@@ -28,9 +38,14 @@ function TVShowsPageMain() {
     const castImg = ['', '', '', ''];
     for (let i = 0; i < 4; i += 1) {
       console.log(castListData[i]);
-      cast[i] = castListData[i].name;
-      castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
-      castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+      if (castListData[i] === undefined) {
+        cast[i] = 'Unavailable';
+        castImg[i] = noImageAvailable;
+      } else {
+        cast[i] = castListData[i].name;
+        castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name; 
+      }
     }
     setCastList(cast);
     setCastImages(castImg);
