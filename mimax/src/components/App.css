@@ -256,6 +256,47 @@ Carousel.indicatorLabels {
   transition: 0.3s ease;
 }
 
+/* movieListMain ====================================*/
+.top-movie-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.top-movie-card {
+  width: 100%;
+  max-width: 300px;
+  background-color: hsl(124, 42%, 38%);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 3px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px; 
+  transition: transform 1s;
+}
+
+.top-movie-card:hover {
+  transform: scale(1.1);
+}
+
+.top-movie-title {
+  font-size: 20px;
+  font-weight: Bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-movie-img {
+  width: 100%;
+}
+
+
+
 /* MoviePageMain =================================*/
 .movie-page-main {
   padding: 20px;
