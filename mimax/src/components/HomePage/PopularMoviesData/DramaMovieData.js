@@ -1,20 +1,20 @@
 const DramaMovies = [
   {
-    title: 'The Fault in Our Stars',
-    img: 'the_fault_in_our_stars.jpg',
+    title: 'Cherry',
+    img: 'cherry.jpeg',
     synopsis: 'Two teenage cancer patients begin a life-affirming journey to visit a reclusive author in Amsterdam.',
     score: 7.7,
   },
   {
-    title: 'High School Musical',
-    img: 'high_school_musical.jpg',
-    synopsis: "A popular high-school athlete and an academically-gifted girl get roles in the school musical and develop a friendship that threatens East High's social order.",
+    title: 'Moonlight',
+    img: 'moonlight.jpeg',
+    synopsis: 'A young man attempts to navigate life and understand his identity through the struggle of love.',
     score: 5.5,
   },
   {
-    title: 'Twilight',
-    img: 'twilight.jpg',
-    synopsis: 'When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.',
+    title: 'Elvis',
+    img: 'elvis.jpeg',
+    synopsis: 'The complicated life of this star is shown in a more nuanced light.',
     score: 5.3,
   },
 ];
