@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mimax-web/static/css/main.3e0587fe.css",
-    "main.js": "/mimax-web/static/js/main.ffd893d9.js",
+    "main.js": "/mimax-web/static/js/main.9c303b7a.js",
     "static/media/avengers.jpg": "/mimax-web/static/media/avengers.b5627efc2578121a7934.jpg",
     "static/media/it.jpg": "/mimax-web/static/media/it.228782ffe1efc69881e2.jpg",
     "static/media/free_guy.jpg": "/mimax-web/static/media/free_guy.5e980ed738f3b79e50e9.jpg",
@@ -21,10 +21,10 @@
     "static/media/githublogo.png": "/mimax-web/static/media/githublogo.19ac7c5825995ac51dce.png",
     "index.html": "/mimax-web/index.html",
     "main.3e0587fe.css.map": "/mimax-web/static/css/main.3e0587fe.css.map",
-    "main.ffd893d9.js.map": "/mimax-web/static/js/main.ffd893d9.js.map"
+    "main.9c303b7a.js.map": "/mimax-web/static/js/main.9c303b7a.js.map"
   },
   "entrypoints": [
     "static/css/main.3e0587fe.css",
-    "static/js/main.ffd893d9.js"
+    "static/js/main.9c303b7a.js"
   ]
 }
