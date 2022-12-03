@@ -126,43 +126,57 @@ function TVListMain() {
         </Form>
         <div className="column">
           <h2>{TVTitle[0]}</h2>
-          <img className="cast-photo" src={TVImgLinks[0]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[0]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[0]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[0]}</p>
           <h3>{TVScore[0]}</h3>
           <br />
           <br />
           <h2>{TVTitle[1]}</h2>
-          <img className="cast-photo" src={TVImgLinks[1]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[1]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[1]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[1]}</p>
           <h3>{TVScore[1]}</h3>
           <br />
           <br />
           <h2>{TVTitle[2]}</h2>
-          <img className="cast-photo" src={TVImgLinks[2]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[2]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[2]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[2]}</p>
           <h3>{TVScore[2]}</h3>
           <br />
           <br />
           <h2>{TVTitle[3]}</h2>
-          <img className="cast-photo" src={TVImgLinks[3]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[3]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[3]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[3]}</p>
           <h3>{TVScore[3]}</h3>
         </div>
         <div className="column">
           <h2>{TVTitle[4]}</h2>
-          <img className="cast-photo" src={TVImgLinks[4]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[4]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[4]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[4]}</p>
           <h3>{TVScore[4]}</h3>
           <br />
           <br />
           <h2>{TVTitle[5]}</h2>
-          <img className="cast-photo" src={TVImgLinks[5]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[5]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[5]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[5]}</p>
           <h3>{TVScore[5]}</h3>
           <br />
           <br />
           <h2>{TVTitle[6]}</h2>
-          <img className="cast-photo" src={TVImgLinks[6]} alt="TV poster" />
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[6]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={TVImgLinks[6]} alt="TV poster" />
+          </a>
           <p>{TVSynopsis[6]}</p>
           <h3>{TVScore[6]}</h3>
         </div>

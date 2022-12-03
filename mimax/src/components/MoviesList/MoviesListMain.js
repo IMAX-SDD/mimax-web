@@ -120,7 +120,7 @@ function MoviesListMain() {
             <option value="16">Animation</option>
             <option value="35">Comedy</option>
             <option value="80">Crime</option>
-            <option value="99">Documentary</option>
+            {/* <option value="99">Documentary</option> */}
             <option value="18">Drama</option>
             <option value="10751">Family</option>
             <option value="14">Fantasy</option>
@@ -139,38 +139,52 @@ function MoviesListMain() {
         <button type="submit" onClick={() => reSort()}>Sort By Worst Score</button>
         <div className="column">
           <h2>{movieTitle[0]} ({movieScore[0]})</h2>
-          <img className="cast-photo" src={movieImgLinks[0]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[0]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[0]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[0]}</p>
           <br />
           <br />
           <h2>{movieTitle[1]} ({movieScore[1]})</h2>
-          <img className="cast-photo" src={movieImgLinks[1]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[1]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[1]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[1]}</p>
           <br />
           <br />
           <h2>{movieTitle[2]} ({movieScore[2]})</h2>
-          <img className="cast-photo" src={movieImgLinks[2]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[2]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[2]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[2]}</p>
           <br />
         </div>
         <div className="column">
           <h2>{movieTitle[3]} ({movieScore[3]})</h2>
-          <img className="cast-photo" src={movieImgLinks[3]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[3]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[3]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[3]}</p>
           <br />
           <br />
           <h2>{movieTitle[4]} ({movieScore[4]})</h2>
-          <img className="cast-photo" src={movieImgLinks[4]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[4]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[4]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[4]}</p>
           <br />
           <br />
           <h2>{movieTitle[5]} ({movieScore[5]})</h2>
-          <img className="cast-photo" src={movieImgLinks[5]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[5]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[5]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[5]}</p>
           <br />
           <br />
           <h2>{movieTitle[6]} ({movieScore[6]})</h2>
-          <img className="cast-photo" src={movieImgLinks[6]} alt="movie poster" />
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[6]}`} target="_blank" rel="noopener noreferrer">
+            <img className="cast-photo" src={movieImgLinks[6]} alt="movie poster" />
+          </a>
           <p>{movieSynopsis[6]}</p>
         </div>
         <br />
