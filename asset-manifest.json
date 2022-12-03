@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.3e0587fe.css",
-    "main.js": "/static/js/main.507d5fd3.js",
-    "static/media/avengers.jpg": "/static/media/avengers.b5627efc2578121a7934.jpg",
-    "static/media/it.jpg": "/static/media/it.228782ffe1efc69881e2.jpg",
-    "static/media/free_guy.jpg": "/static/media/free_guy.5e980ed738f3b79e50e9.jpg",
-    "static/media/high_school_musical.jpg": "/static/media/high_school_musical.c4ab2d76dbc2e3b8e429.jpg",
-    "static/media/percy_jackson.jpg": "/static/media/percy_jackson.fd4e702464f3db4150bc.jpg",
-    "static/media/the_fault_in_our_stars.jpg": "/static/media/the_fault_in_our_stars.f792c0b7a5d94f0104f7.jpg",
-    "static/media/bullet_train.jpg": "/static/media/bullet_train.e182d7a20dad8e1a7ccf.jpg",
-    "static/media/smile.jpg": "/static/media/smile.7f874411b399f0b2680c.jpg",
-    "static/media/uncharted.jpg": "/static/media/uncharted.b9fa403703e5434b1414.jpg",
-    "static/media/toy_story.jpg": "/static/media/toy_story.34f422dd621d11453ddb.jpg",
-    "static/media/the_black_phone.jpg": "/static/media/the_black_phone.10cfc0902b75490f3fef.jpg",
-    "static/media/twilight.jpg": "/static/media/twilight.70d27ebe30ebc1ae2d39.jpg",
-    "static/media/zendaya.jpg": "/static/media/zendaya.ae078975e8d28558fd1f.jpg",
-    "static/media/steven.jpg": "/static/media/steven.2277b052711ca80342f1.jpg",
-    "static/media/minions.jpg": "/static/media/minions.d25d8510a8fae085eda7.jpg",
-    "static/media/logo.jpg": "/static/media/logo.ff303c423ed797a82aed.jpg",
-    "static/media/githublogo.png": "/static/media/githublogo.19ac7c5825995ac51dce.png",
-    "index.html": "/index.html",
-    "main.3e0587fe.css.map": "/static/css/main.3e0587fe.css.map",
-    "main.507d5fd3.js.map": "/static/js/main.507d5fd3.js.map"
+    "main.css": "/mimax-web/static/css/main.3e0587fe.css",
+    "main.js": "/mimax-web/static/js/main.6999c3f2.js",
+    "static/media/avengers.jpg": "/mimax-web/static/media/avengers.b5627efc2578121a7934.jpg",
+    "static/media/it.jpg": "/mimax-web/static/media/it.228782ffe1efc69881e2.jpg",
+    "static/media/free_guy.jpg": "/mimax-web/static/media/free_guy.5e980ed738f3b79e50e9.jpg",
+    "static/media/high_school_musical.jpg": "/mimax-web/static/media/high_school_musical.c4ab2d76dbc2e3b8e429.jpg",
+    "static/media/percy_jackson.jpg": "/mimax-web/static/media/percy_jackson.fd4e702464f3db4150bc.jpg",
+    "static/media/the_fault_in_our_stars.jpg": "/mimax-web/static/media/the_fault_in_our_stars.f792c0b7a5d94f0104f7.jpg",
+    "static/media/bullet_train.jpg": "/mimax-web/static/media/bullet_train.e182d7a20dad8e1a7ccf.jpg",
+    "static/media/smile.jpg": "/mimax-web/static/media/smile.7f874411b399f0b2680c.jpg",
+    "static/media/uncharted.jpg": "/mimax-web/static/media/uncharted.b9fa403703e5434b1414.jpg",
+    "static/media/toy_story.jpg": "/mimax-web/static/media/toy_story.34f422dd621d11453ddb.jpg",
+    "static/media/the_black_phone.jpg": "/mimax-web/static/media/the_black_phone.10cfc0902b75490f3fef.jpg",
+    "static/media/twilight.jpg": "/mimax-web/static/media/twilight.70d27ebe30ebc1ae2d39.jpg",
+    "static/media/zendaya.jpg": "/mimax-web/static/media/zendaya.ae078975e8d28558fd1f.jpg",
+    "static/media/steven.jpg": "/mimax-web/static/media/steven.2277b052711ca80342f1.jpg",
+    "static/media/minions.jpg": "/mimax-web/static/media/minions.d25d8510a8fae085eda7.jpg",
+    "static/media/logo.jpg": "/mimax-web/static/media/logo.ff303c423ed797a82aed.jpg",
+    "static/media/githublogo.png": "/mimax-web/static/media/githublogo.19ac7c5825995ac51dce.png",
+    "index.html": "/mimax-web/index.html",
+    "main.3e0587fe.css.map": "/mimax-web/static/css/main.3e0587fe.css.map",
+    "main.6999c3f2.js.map": "/mimax-web/static/js/main.6999c3f2.js.map"
   },
   "entrypoints": [
     "static/css/main.3e0587fe.css",
-    "static/js/main.507d5fd3.js"
+    "static/js/main.6999c3f2.js"
   ]
 }
