@@ -54,10 +54,11 @@ body {
 }
 
 .logo {
-  width: 300px;
+  max-width: 100%;
+  width: 160px;
   display: block;
   margin: auto;
-  margin-top: -70px;
+  margin-top: -60px;
 }
 
 .sidebar {
