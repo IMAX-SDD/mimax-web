@@ -257,7 +257,7 @@ Carousel.indicatorLabels {
   transition: 0.3s ease;
 }
 
-/* movieListMain ====================================*/
+/* Top movie/tvshows/people pages ====================================*/
 .top-movie-list {
   display: flex;
   flex-wrap: nowrap;
@@ -278,6 +278,7 @@ Carousel.indicatorLabels {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px; 
+  margin-bottom: 20px;
   transition: transform 1s;
 }
 

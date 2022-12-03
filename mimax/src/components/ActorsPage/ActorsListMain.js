@@ -1,64 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import {
-  Row, Col, Form,
+  Row, Col, Form, Card,
 } from 'react-bootstrap';
 import noImageAvailable from '../Images/Misc/no_image_available.jpg';
-
-function formatting(actorsList) {
-  return (
-    // formatting for top actors list 
-    <div className="movie-display-section">
-      <h1 style={{ fontWeight: 'bolder' }}>Top Actors/Actresses</h1>
-      <div className="column">
-        <h2>{actorsList[0].name} (Popularity Ranking 1)</h2>
-        <a href={`http://localhost:3000/actors?actor=${actorsList[0].name}`} target="_blank" rel="noopener noreferrer">
-          <img src={actorsList[0].imgLink} className="cast-photo" alt="actor poster" />
-        </a>
-        <p>{actorsList[0].work}</p>
-        <br />
-        <br />
-        <h2>{actorsList[1].name} (Popularity Ranking 2)</h2>
-        <a href={`http://localhost:3000/actors?actor=${actorsList[1].name}`} target="_blank" rel="noopener noreferrer">
-          <img src={actorsList[1].imgLink} className="cast-photo" alt="actor poster" />
-        </a>
-        <p>{actorsList[1].work}</p>
-        <br />
-        <br />
-        <h2>{actorsList[2].name} (Popularity Ranking 3)</h2>
-        <a href={`http://localhost:3000/actors?actor=${actorsList[2].name}`} target="_blank" rel="noopener noreferrer">
-          <img src={actorsList[2].imgLink} className="cast-photo" alt="actor poster" />
-        </a>
-        <p>{actorsList[2].work}</p>
-        
-        <br />
-      </div>
-      <div className="column">
-        <h2>{actorsList[3].name} (Popularity Ranking 4)</h2>
-        <a href={`http://localhost:3000/actors?actor=${actorsList[3].name}`} target="_blank" rel="noopener noreferrer">
-          <img src={actorsList[3].imgLink} className="cast-photo" alt="actor poster" />
-        </a>
-        <p>{actorsList[3].work}</p>
-        <br />
-        <br />
-        <h2>{actorsList[4].name} (Popularity Ranking 5)</h2>
-        <a href={`http://localhost:3000/actors?actor=${actorsList[4].name}`} target="_blank" rel="noopener noreferrer">
-          <img src={actorsList[4].imgLink} className="cast-photo" alt="actor poster" />
-        </a>
-        <p>{actorsList[4].work}</p>
-        <br />
-        <br />
-        <h2>{actorsList[5].name} (Popularity Ranking 6)</h2>
-        <a href={`http://localhost:3000/actors?actor=${actorsList[5].name}`} target="_blank" rel="noopener noreferrer">
-          <img src={actorsList[5].imgLink} className="cast-photo" alt="actor poster" />
-        </a>
-        <p>{actorsList[5].work}</p>
-        <br />
-        <br />
-      </div>
-      <br />
-    </div>
-  ); 
-}
 
 // actors list where main code/functionality happens
 function ActorsListMain() {
@@ -116,7 +60,7 @@ function ActorsListMain() {
   // set movie details with name, popularity, overview and score
   function setActorDetails(json) {
     const tmpList = []; 
-    for (let index = 0; index < 6; index += 1) {
+    for (let index = 0; index < 12; index += 1) {
       const tmpObj = {
         name: json[index].name, 
         popularity: parseInt(json[index].popularity, 10),
@@ -147,6 +91,52 @@ function ActorsListMain() {
     callAPI();
   }, []);
 
+  // generates a single top actor card
+  function displayTopActors(num, ranking) {
+    return (          
+      <Col>
+        <Card className="top-card" style={{ background: '#3E8943' }}>
+          <a href={`http://localhost:3000/actors?actor=${actorsList[num].name}`} target="_blank" rel="noopener noreferrer">
+            <Card.Img
+              className="top-img"
+              src={actorsList[num].imgLink}
+              alt="actor-poster"
+            />
+          </a>
+          <Card.Body>
+            <Card.Title className="top-title">
+              <h3>{actorsList[num].name} (Popularity Ranking {ranking})</h3>
+            </Card.Title>
+            <br />
+          </Card.Body>
+        </Card>
+      </Col>
+    );
+  }
+
+  function formatting() {
+    return (
+      // formatting for top actors list 
+      <div>
+        <Row>
+          {displayTopActors(1, 1)}
+          {displayTopActors(2, 2)}
+          {displayTopActors(3, 3)}
+          {displayTopActors(4, 4)}
+          {displayTopActors(6, 5)}
+        </Row>
+  
+        <Row>
+          {displayTopActors(7, 6)}
+          {displayTopActors(8, 7)}
+          {displayTopActors(9, 8)}
+          {displayTopActors(10, 9)}
+          {displayTopActors(11, 10)}
+        </Row>
+      </div>
+    ); 
+  }  
+
   return (
     <div className="main row">
       <div className="movie-display-section">
@@ -170,8 +160,8 @@ function ActorsListMain() {
             </Row>
           </Form>
         </div>
-      </div>
-      {filled ? formatting(actorsList) : ''}
+        {filled ? formatting() : ''} 
+      </div>  
     </div>
   );
 }

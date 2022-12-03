@@ -77,16 +77,16 @@ function TVListMain() {
     callAPI(searchParams.get('genre'));
   }, []);
 
-  // generates a single top movie card
+  // generates a single top TV show card
   function displayTopTVShows(num) {
     return (          
       <Col>
         <Card className="top-card" style={{ background: '#3E8943' }}>
-          <a href={`http://localhost:3000/movies?movie=${TVTitle[num]}`} target="_blank" rel="noopener noreferrer">
+          <a href={`http://localhost:3000/tvshows?show=${TVTitle[num]}`} target="_blank" rel="noopener noreferrer">
             <Card.Img
               className="top-img"
               src={TVImgLinks[num]}
-              alt="movie-poster"
+              alt="TVShow-poster"
             />
           </a>
           <Card.Body>
