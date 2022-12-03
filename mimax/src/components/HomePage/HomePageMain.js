@@ -53,7 +53,7 @@ function HomePageMain() {
           {movieData.map((item) => (
             <Carousel.Item key={item.id}>
               <Card style={{ background: '#3E8943' }}>
-                <Link to={`/movies?movie=${item.title}`}>
+                <Link to={`/movies?movie=${item.title}`} target="_blank" rel="noopener noreferrer">
                   <Card.Img
                     className="movie-img"
                     src={require(`/src/components/Images/MoviePosters/${item.img}`)}
@@ -128,7 +128,7 @@ function HomePageMain() {
             <Row>
               <Col>
                 <p className="actor-name">
-                  <a style={{ color: '#FFFFFF' }} href={`http://localhost:3000/actors?actor=${FeaturedActor[0].Name}`} target="_blank" rel="noopener noreferrer">{FeaturedActor[0].Name} </a>
+                  <Link style={{ color: '#FFFFFF' }} to={`/actors?actor=${FeaturedActor[0].Name}`} target="_blank" rel="noopener noreferrer">{FeaturedActor[0].Name} </Link>
                 </p> 
                 <Card className="actor-card" style={{ background: '#312828' }}>
                   <Card.Img
@@ -143,7 +143,7 @@ function HomePageMain() {
               </Col>
               <Col>
                 <p className="actor-name">
-                  <a style={{ color: '#FFFFFF' }} href={`http://localhost:3000/actors?actor=${FeaturedDirector[0].Name}`} target="_blank" rel="noopener noreferrer">{FeaturedDirector[0].Name}</a>
+                  <Link style={{ color: '#FFFFFF' }} to={`/actors?actor=${FeaturedDirector[0].Name}`} target="_blank" rel="noopener noreferrer">{FeaturedDirector[0].Name}</Link>
                 </p>
                 <Card className="actor-card" style={{ background: '#312828' }}>
                   <Card.Img
