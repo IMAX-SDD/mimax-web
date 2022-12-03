@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // main actors page where main code/functionality happens
 function ActorsPageMain() {
@@ -13,7 +14,12 @@ function ActorsPageMain() {
   function setActorDetails(json) {
     setActorName(json.name);
     setActorPopularity(parseInt(json.popularity, 10));
-    setActorImgLink('https://image.tmdb.org/t/p/w500' + json.profile_path);
+
+    if (json.profile_path === null) {
+      setActorImgLink(noImageAvailable);
+    } else {
+      setActorImgLink('https://image.tmdb.org/t/p/w500' + json.profile_path);
+    }
 
     const numOfWorks = json.known_for.length; 
     const popularWorks = []; 

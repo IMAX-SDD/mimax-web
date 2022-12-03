@@ -1,8 +1,9 @@
 import { React, useEffect, useState } from 'react';
 import {
-  Row, Col, Form,
+  Row, Col, Form, Card,
 } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // movies page where main code/functionality happens
 function MoviesListMain() {
@@ -21,7 +22,7 @@ function MoviesListMain() {
     let url = '';
     if (searchType === 'movies') {
       url = 'http://localhost:3000/movies?movie=';
-    } else if (searchType === 'actors') {
+    } else if (searchType === 'people') {
       url = 'http://localhost:3000/actors?actor=';
     } else {
       url = 'http://localhost:3000/tvshows?show=';
@@ -37,7 +38,7 @@ function MoviesListMain() {
   }
 
   const [movieTitle, setMovieTitle] = useState([]);
-  const [movieSynopsis, setMovieSynopsis] = useState([]);
+  /* const [movieSynopsis, setMovieSynopsis] = useState([]); */
   const [movieScore, setMovieScore] = useState([]);
   const [searchParams] = useSearchParams();
   const [movieImgLinks, setMovieImgLinks] = useState([]);
@@ -53,10 +54,14 @@ function MoviesListMain() {
       mt.push(json[i].original_title);
       ms.push(json[i].overview);
       mss.push(`Score ${json[i].vote_average}`); 
-      mil.push('https://image.tmdb.org/t/p/original' + json[i].poster_path);
+      if (json[i].poster_path == null) {
+        mil.push(noImageAvailable);
+      } else {
+        mil.push('https://image.tmdb.org/t/p/original' + json[i].poster_path);
+      }
     }
     setMovieTitle(mt);
-    setMovieSynopsis(ms);
+    // setMovieSynopsis(ms);
     setMovieScore(mss);
     setMovieImgLinks(mil);
   }
@@ -74,18 +79,43 @@ function MoviesListMain() {
   function setGenreFilterOption(e) {
     window.location.href = 'http://localhost:3000/movieslist?genre=' + e.target.value;
   }
+
+  // generates a single top movie card
+  function displayTopMovies(num) {
+    return (          
+      <Col>
+        <Card className="top-movie-card" style={{ background: '#3E8943' }}>
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[num]}`} target="_blank" rel="noopener noreferrer">
+            <Card.Img
+              className="top-movie-img"
+              src={movieImgLinks[num]}
+              alt="movie-poster"
+            />
+          </a>
+          <Card.Body>
+            <Card.Title className="top-movie-title">
+              <h3>{movieTitle[num]} ({movieScore[num]})</h3>
+            </Card.Title>
+            <br />
+          </Card.Body>
+        </Card>
+      </Col>
+    );
+  }
   
   useEffect(() => {
     setMovieTitle([]);
-    setMovieSynopsis([]);
+    // setMovieSynopsis([]);
     setMovieScore([]);
     setMovieImgLinks([]);
     callAPI(searchParams.get('genre'));
   }, []);
 
+  /* 
   const reSort = () => {
     window.open('http://localhost:3000/movieslistreverse', '_self');
   };
+  */
 
   return (
     <div className="main row">
@@ -99,7 +129,7 @@ function MoviesListMain() {
                 {/* <Form.Group className="search-field"> */}
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
-                  <option value="actors">Actors</option>
+                  <option value="people">People</option>
                   <option value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}
@@ -136,58 +166,22 @@ function MoviesListMain() {
             <option value="37">Western</option>
           </Form.Select>
         </Form>
-        <button type="submit" onClick={() => reSort()}>Sort By Worst Score</button>
-        <div className="column">
-          <h2>{movieTitle[0]} ({movieScore[0]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[0]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[0]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[0]}</p>
-          <br />
-          <br />
-          <h2>{movieTitle[1]} ({movieScore[1]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[1]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[1]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[1]}</p>
-          <br />
-          <br />
-          <h2>{movieTitle[2]} ({movieScore[2]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[2]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[2]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[2]}</p>
-          <br />
-        </div>
-        <div className="column">
-          <h2>{movieTitle[3]} ({movieScore[3]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[3]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[3]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[3]}</p>
-          <br />
-          <br />
-          <h2>{movieTitle[4]} ({movieScore[4]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[4]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[4]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[4]}</p>
-          <br />
-          <br />
-          <h2>{movieTitle[5]} ({movieScore[5]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[5]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[5]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[5]}</p>
-          <br />
-          <br />
-          <h2>{movieTitle[6]} ({movieScore[6]})</h2>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[6]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={movieImgLinks[6]} alt="movie poster" />
-          </a>
-          <p>{movieSynopsis[6]}</p>
-        </div>
-        <br />
+
+        <Row>
+          {displayTopMovies(1)}
+          {displayTopMovies(2)}
+          {displayTopMovies(3)}
+          {displayTopMovies(4)}
+          {displayTopMovies(5)}
+        </Row>
+
+        <Row>
+          {displayTopMovies(6)}
+          {displayTopMovies(7)}
+          {displayTopMovies(8)}
+          {displayTopMovies(9)}
+          {displayTopMovies(10)}
+        </Row>
       </div>
     </div>
   );

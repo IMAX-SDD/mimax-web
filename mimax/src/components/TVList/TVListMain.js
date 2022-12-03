@@ -21,7 +21,7 @@ function TVListMain() {
     let url = '';
     if (searchType === 'movies') {
       url = 'http://localhost:3000/movies?movie=';
-    } else if (searchType === 'actors') {
+    } else if (searchType === 'people') {
       url = 'http://localhost:3000/actors?actor=';
     } else {
       url = 'http://localhost:3000/tvshows?show=';
@@ -89,7 +89,7 @@ function TVListMain() {
                 {/* <Form.Group className="search-field"> */}
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
-                  <option value="actors">Actors</option>
+                  <option value="people">People</option>
                   <option selected value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}

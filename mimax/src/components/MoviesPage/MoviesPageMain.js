@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // movies page where main code/functionality happens
 function MoviesPageMain() {
@@ -15,16 +16,29 @@ function MoviesPageMain() {
   const [castLinks, setCastLinks] = useState([]);
 
   function setOMDBDetails(data) {
-    setMovieImgLink(data.Poster);
-    setMovieAgeRating(data.Rated);
+    if (data.Poster === undefined) {
+      setMovieImgLink(noImageAvailable);
+    } else {
+      setMovieImgLink(data.Poster);
+    }
+    
+    if (data.Rated === undefined) {
+      setMovieAgeRating('N/A');
+    } else {
+      setMovieAgeRating(data.Rated);
+    }
   }
 
   function setMovieProviderDetails(name) {
-    const sources = name.US.flatrate;
-    if (sources.length > 0) {
-      setMovieProvider(sources[0].provider_name);
+    if (name.US === undefined) {
+      setMovieProvider('N/A');
     } else {
-      setMovieProvider(name.US.buy[0].provider_name);
+      const sources = name.US.flatrate;
+      if (sources.length > 0) {
+        setMovieProvider(sources[0].provider_name);
+      } else {
+        setMovieProvider(name.US.buy[0].provider_name);
+      }
     }
   }
 
@@ -37,9 +51,14 @@ function MoviesPageMain() {
     const castImg = ['', '', '', ''];
     for (let i = 0; i < 4; i += 1) {
       console.log(castListData[i]);
-      cast[i] = castListData[i].name;
-      castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
-      castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+      if (castListData[i] === undefined) {
+        cast[i] = 'Unavailable';
+        castImg[i] = noImageAvailable;
+      } else {
+        cast[i] = castListData[i].name;
+        castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+      }
     }
     setCastList(cast);
     setCastImages(castImg);
