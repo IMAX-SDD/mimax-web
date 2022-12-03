@@ -80,11 +80,12 @@ function MoviesListMain() {
     window.location.href = 'http://localhost:3000/movieslist?genre=' + e.target.value;
   }
 
+  // generates a single top movie card
   function displayTopMovies(num) {
     return (          
       <Col>
         <Card className="top-movie-card" style={{ background: '#3E8943' }}>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[0]}`} target="_blank" rel="noopener noreferrer">
+          <a href={`http://localhost:3000/movies?movie=${movieTitle[num]}`} target="_blank" rel="noopener noreferrer">
             <Card.Img
               className="top-movie-img"
               src={movieImgLinks[num]}

@@ -267,7 +267,7 @@ Carousel.indicatorLabels {
 
 .top-movie-card {
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   background-color: hsl(124, 42%, 38%);
   color: black;
   display: flex;
