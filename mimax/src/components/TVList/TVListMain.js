@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 // movies page where main code/functionality happens
 function TVListMain() {
   const [term, setTerm] = useState('');
-  const [searchType, setSearchType] = useState('movies');
+  const [searchType, setSearchType] = useState('tvshows');
 
   function setSearch(e) {
     setTerm(e.target.value);
@@ -90,7 +90,7 @@ function TVListMain() {
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
                   <option value="actors">Actors</option>
-                  <option value="tvshows">TV Shows</option>
+                  <option selected value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}
               </Col>
@@ -100,6 +100,9 @@ function TVListMain() {
             </Row>
           </Form>
         </div>
+        <br />
+        <br />
+        <h1 style={{ fontWeight: 'bolder' }}>Top TV Shows</h1>
         <Form>
           <Form.Select onChange={setGenreFilterOption} value={searchParams.get('genre')}>
             <option value="">All Genres</option>
@@ -121,9 +124,6 @@ function TVListMain() {
             <option value="37">Western</option>
           </Form.Select>
         </Form>
-        <br />
-        <br />
-        <h1 style={{ fontWeight: 'bolder' }}>Top TV Shows</h1>
         <div className="column">
           <h2>{TVTitle[0]}</h2>
           <img className="cast-photo" src={TVImgLinks[0]} alt="TV poster" />

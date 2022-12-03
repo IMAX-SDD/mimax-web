@@ -7,7 +7,6 @@ function formatting(actorsList) {
   return (
     // formatting for top actors list 
     <div className="movie-display-section">
-      <br />
       <h1 style={{ fontWeight: 'bolder' }}>Top Actors/Actresses</h1>
       <div className="column">
         <h2>{actorsList[0].name} (Popularity {actorsList[0].popularity})</h2>
@@ -50,15 +49,11 @@ function formatting(actorsList) {
 
 // actors list where main code/functionality happens
 function ActorsListMain() {
-  const [actorName] = useState('');
-  const [actorPopularity] = useState('');
-  const [actorKnownFor] = useState('');
   const [actorsList, setActorsList] = useState([]);
   const [filled, setFilled] = useState(false);
-  const [searchCheck] = useState(false);
 
   const [term, setTerm] = useState('');
-  const [searchType, setSearchType] = useState('movies');
+  const [searchType, setSearchType] = useState('actors');
 
   function setSearch(e) {
     setTerm(e.target.value);
@@ -139,6 +134,7 @@ function ActorsListMain() {
   return (
     <div className="main row">
       <div className="movie-display-section">
+        <br />
         <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Actors Page</h1>
         <div className="search-field">
           <Form>
@@ -147,7 +143,7 @@ function ActorsListMain() {
                 {/* <Form.Group className="search-field"> */}
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
-                  <option value="actors">Actors</option>
+                  <option selected value="actors">Actors</option>
                   <option value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}
@@ -157,15 +153,6 @@ function ActorsListMain() {
               </Col>
             </Row>
           </Form>
-        </div>
-        <div>
-          {searchCheck
-            ? [
-              <h2>{actorName}</h2>,
-              <h3 style={{ marginBottom: '0px', fontSize: '20px' }}>Popular Works: {actorKnownFor}</h3>,
-              <p style={{ fontSize: '15px' }}>Actor Popularity: {actorPopularity}</p>,
-            ]
-            : null }
         </div>
       </div>
       {filled ? formatting(actorsList) : ''}
