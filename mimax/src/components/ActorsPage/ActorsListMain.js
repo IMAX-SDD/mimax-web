@@ -10,21 +10,21 @@ function formatting(actorsList) {
     <div className="movie-display-section">
       <h1 style={{ fontWeight: 'bolder' }}>Top Actors/Actresses</h1>
       <div className="column">
-        <h2>{actorsList[0].name} (Popularity {actorsList[0].popularity})</h2>
+        <h2>{actorsList[0].name} (Popularity Ranking 1)</h2>
         <a href={`http://localhost:3000/actors?actor=${actorsList[0].name}`} target="_blank" rel="noopener noreferrer">
           <img src={actorsList[0].imgLink} className="cast-photo" alt="actor poster" />
         </a>
         <p>{actorsList[0].work}</p>
         <br />
         <br />
-        <h2>{actorsList[1].name} (Popularity {actorsList[1].popularity})</h2>
+        <h2>{actorsList[1].name} (Popularity Ranking 2)</h2>
         <a href={`http://localhost:3000/actors?actor=${actorsList[1].name}`} target="_blank" rel="noopener noreferrer">
           <img src={actorsList[1].imgLink} className="cast-photo" alt="actor poster" />
         </a>
         <p>{actorsList[1].work}</p>
         <br />
         <br />
-        <h2>{actorsList[2].name} (Popularity {actorsList[2].popularity})</h2>
+        <h2>{actorsList[2].name} (Popularity Ranking 3)</h2>
         <a href={`http://localhost:3000/actors?actor=${actorsList[2].name}`} target="_blank" rel="noopener noreferrer">
           <img src={actorsList[2].imgLink} className="cast-photo" alt="actor poster" />
         </a>
@@ -33,21 +33,21 @@ function formatting(actorsList) {
         <br />
       </div>
       <div className="column">
-        <h2>{actorsList[3].name} (Popularity {actorsList[3].popularity})</h2>
+        <h2>{actorsList[3].name} (Popularity Ranking 4)</h2>
         <a href={`http://localhost:3000/actors?actor=${actorsList[3].name}`} target="_blank" rel="noopener noreferrer">
           <img src={actorsList[3].imgLink} className="cast-photo" alt="actor poster" />
         </a>
         <p>{actorsList[3].work}</p>
         <br />
         <br />
-        <h2>{actorsList[4].name} (Popularity {actorsList[4].popularity})</h2>
+        <h2>{actorsList[4].name} (Popularity Ranking 5)</h2>
         <a href={`http://localhost:3000/actors?actor=${actorsList[4].name}`} target="_blank" rel="noopener noreferrer">
           <img src={actorsList[4].imgLink} className="cast-photo" alt="actor poster" />
         </a>
         <p>{actorsList[4].work}</p>
         <br />
         <br />
-        <h2>{actorsList[5].name} (Popularity {actorsList[5].popularity})</h2>
+        <h2>{actorsList[5].name} (Popularity Ranking 6)</h2>
         <a href={`http://localhost:3000/actors?actor=${actorsList[5].name}`} target="_blank" rel="noopener noreferrer">
           <img src={actorsList[5].imgLink} className="cast-photo" alt="actor poster" />
         </a>
