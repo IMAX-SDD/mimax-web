@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container, Carousel, Row, Col, Card, Form,
 } from 'react-bootstrap';
@@ -52,13 +53,13 @@ function HomePageMain() {
           {movieData.map((item) => (
             <Carousel.Item key={item.id}>
               <Card style={{ background: '#3E8943' }}>
-                <a href={`http://localhost:3000/movies?movie=${item.title}`} target="_blank" rel="noopener noreferrer">
+                <Link to={`/movies?movie=${item.title}`}>
                   <Card.Img
                     className="movie-img"
                     src={require(`/src/components/Images/MoviePosters/${item.img}`)}
                     alt="movie-poster"
                   />
-                </a>
+                </Link>
                 <Card.Body>
                   <Card.Title className="movie-title">{item.title}</Card.Title>
                   <br />
