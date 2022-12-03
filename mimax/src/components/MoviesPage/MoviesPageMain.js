@@ -30,7 +30,7 @@ function MoviesPageMain() {
   }
 
   function setMovieProviderDetails(name) {
-    if (name.US === undefined) {
+    if (name.US === undefined || name.US.flatrate === undefined) {
       setMovieProvider('N/A');
     } else {
       const sources = name.US.flatrate;

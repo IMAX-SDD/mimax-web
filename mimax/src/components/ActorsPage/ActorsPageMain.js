@@ -69,6 +69,11 @@ function ActorsPageMain() {
                   <h2>Actor Popularity</h2>
                   {actorPopularity}
                 </h3>
+                <h7>
+                  <a style={{ color: '#FFFFFF' }} href="https://developers.themoviedb.org/3/getting-started/popularity" target="_blank" rel="noopener noreferrer">Popularity Scale:</a> 
+                  &nbsp;&quot;Number of views for the day&quot; 
+                  and the &quot;Previous days score&quot;
+                </h7>
               </div>
             </div>
           </div>
