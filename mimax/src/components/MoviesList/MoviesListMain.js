@@ -84,16 +84,16 @@ function MoviesListMain() {
   function displayTopMovies(num) {
     return (          
       <Col>
-        <Card className="top-movie-card" style={{ background: '#3E8943' }}>
+        <Card className="top-card" style={{ background: '#3E8943' }}>
           <a href={`http://localhost:3000/movies?movie=${movieTitle[num]}`} target="_blank" rel="noopener noreferrer">
             <Card.Img
-              className="top-movie-img"
+              className="top-img"
               src={movieImgLinks[num]}
               alt="movie-poster"
             />
           </a>
           <Card.Body>
-            <Card.Title className="top-movie-title">
+            <Card.Title className="top-title">
               <h3>{movieTitle[num]} ({movieScore[num]})</h3>
             </Card.Title>
             <br />

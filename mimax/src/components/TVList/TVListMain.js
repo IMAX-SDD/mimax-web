@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import {
-  Row, Col, Form,
+  Row, Col, Form, Card,
 } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 
@@ -77,6 +77,29 @@ function TVListMain() {
     callAPI(searchParams.get('genre'));
   }, []);
 
+  // generates a single top movie card
+  function displayTopTVShows(num) {
+    return (          
+      <Col>
+        <Card className="top-card" style={{ background: '#3E8943' }}>
+          <a href={`http://localhost:3000/movies?movie=${TVTitle[num]}`} target="_blank" rel="noopener noreferrer">
+            <Card.Img
+              className="top-img"
+              src={TVImgLinks[num]}
+              alt="movie-poster"
+            />
+          </a>
+          <Card.Body>
+            <Card.Title className="top-title">
+              <h3>{TVTitle[num]} ({TVScore[num]})</h3>
+            </Card.Title>
+            <br />
+          </Card.Body>
+        </Card>
+      </Col>
+    );
+  }
+
   return (
     <div className="main">
       <div className="movie-display-section">
@@ -124,63 +147,23 @@ function TVListMain() {
             <option value="37">Western</option>
           </Form.Select>
         </Form>
-        <div className="column">
-          <h2>{TVTitle[0]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[0]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[0]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[0]}</p>
-          <h3>{TVScore[0]}</h3>
-          <br />
-          <br />
-          <h2>{TVTitle[1]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[1]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[1]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[1]}</p>
-          <h3>{TVScore[1]}</h3>
-          <br />
-          <br />
-          <h2>{TVTitle[2]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[2]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[2]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[2]}</p>
-          <h3>{TVScore[2]}</h3>
-          <br />
-          <br />
-          <h2>{TVTitle[3]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[3]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[3]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[3]}</p>
-          <h3>{TVScore[3]}</h3>
-        </div>
-        <div className="column">
-          <h2>{TVTitle[4]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[4]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[4]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[4]}</p>
-          <h3>{TVScore[4]}</h3>
-          <br />
-          <br />
-          <h2>{TVTitle[5]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[5]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[5]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[5]}</p>
-          <h3>{TVScore[5]}</h3>
-          <br />
-          <br />
-          <h2>{TVTitle[6]}</h2>
-          <a href={`http://localhost:3000/tvshows?show=${TVTitle[6]}`} target="_blank" rel="noopener noreferrer">
-            <img className="cast-photo" src={TVImgLinks[6]} alt="TV poster" />
-          </a>
-          <p>{TVSynopsis[6]}</p>
-          <h3>{TVScore[6]}</h3>
-        </div>
-        <br />
+
+        <Row>
+          {displayTopTVShows(1)}
+          {displayTopTVShows(2)}
+          {displayTopTVShows(3)}
+          {displayTopTVShows(4)}
+          {displayTopTVShows(5)}
+        </Row>
+
+        <Row>
+          {displayTopTVShows(6)}
+          {displayTopTVShows(7)}
+          {displayTopTVShows(8)}
+          {displayTopTVShows(9)}
+          {displayTopTVShows(10)}
+        </Row>
+
       </div>
     </div>
   );
