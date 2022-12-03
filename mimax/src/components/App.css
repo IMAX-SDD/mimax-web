@@ -265,7 +265,7 @@ Carousel.indicatorLabels {
   overflow-x: auto;
 }
 
-.top-movie-card {
+.top-card {
   width: 100%;
   max-width: 280px;
   background-color: hsl(124, 42%, 38%);
@@ -281,18 +281,18 @@ Carousel.indicatorLabels {
   transition: transform 1s;
 }
 
-.top-movie-card:hover {
+.top-card:hover {
   transform: scale(1.1);
 }
 
-.top-movie-title {
+.top-title {
   font-size: 20px;
   font-weight: Bold;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.top-movie-img {
+.top-img {
   width: 100%;
 }
 
