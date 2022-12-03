@@ -17,10 +17,10 @@ function Navbar() {
       </button>
       <ul className="bar-links">
         <li>
-          <Link to="/#">Home</Link>
+          <a href="/#">Home</a>
         </li>
         <li>
-          <Link to="/movieslist">Movies</Link>
+          <a href="/movieslist">Movies</a>
         </li>
         <li>
           <a href="/tvlist">TV Shows</a>
