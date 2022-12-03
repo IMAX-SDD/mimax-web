@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3e0587fe.css",
-    "main.js": "/static/js/main.047c59bd.js",
+    "main.js": "/static/js/main.507d5fd3.js",
     "static/media/avengers.jpg": "/static/media/avengers.b5627efc2578121a7934.jpg",
     "static/media/it.jpg": "/static/media/it.228782ffe1efc69881e2.jpg",
     "static/media/free_guy.jpg": "/static/media/free_guy.5e980ed738f3b79e50e9.jpg",
@@ -21,10 +21,10 @@
     "static/media/githublogo.png": "/static/media/githublogo.19ac7c5825995ac51dce.png",
     "index.html": "/index.html",
     "main.3e0587fe.css.map": "/static/css/main.3e0587fe.css.map",
-    "main.047c59bd.js.map": "/static/js/main.047c59bd.js.map"
+    "main.507d5fd3.js.map": "/static/js/main.507d5fd3.js.map"
   },
   "entrypoints": [
     "static/css/main.3e0587fe.css",
-    "static/js/main.047c59bd.js"
+    "static/js/main.507d5fd3.js"
   ]
 }
