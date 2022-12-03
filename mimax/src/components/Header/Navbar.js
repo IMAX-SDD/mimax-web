@@ -54,7 +54,7 @@ function Navbar() {
           >
             <FaBars />
           </button>
-          <a href="/"><img className="logo" src={logo} alt="logo" /></a>
+          <Link to="/#"><img className="logo" src={logo} alt="logo" /></Link>
         </div>
         {toggleBar && hamburgerMenu}
       </div>
