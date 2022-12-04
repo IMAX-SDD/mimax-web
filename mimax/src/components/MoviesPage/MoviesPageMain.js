@@ -78,12 +78,23 @@ function MoviesPageMain() {
   };
 
   const getPoster = (name) => {
-    const link = `http://www.omdbapi.com/?t=${name}&apikey=acae3f03`;
-    fetch(link, { method: 'GET' })
-      // Parsing the data into a JavaScript object
-      .then((data) => data.json())
-      // Displaying the stringified data in an alert popup
-      .then((json) => setOMDBDetails(json));
+    if (name.includes(' ')) {
+      const spaceCheck = name.replace(/\s/g, '+');
+      const onceUponCheck = spaceCheck.replace('…', '');
+      const link = `http://www.omdbapi.com/?t=${onceUponCheck}&apikey=acae3f03`;
+      fetch(link, { method: 'GET' })
+        // Parsing the data into a JavaScript object
+        .then((data) => data.json())
+        // Displaying the stringified data in an alert popup
+        .then((json) => setOMDBDetails(json));
+    } else {
+      const link = `http://www.omdbapi.com/?t=${name}&apikey=acae3f03`;
+      fetch(link, { method: 'GET' })
+        // Parsing the data into a JavaScript object
+        .then((data) => data.json())
+        // Displaying the stringified data in an alert popup
+        .then((json) => setOMDBDetails(json));
+    }
   };
 
   const getCast = (id) => {
