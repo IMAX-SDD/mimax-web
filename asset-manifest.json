@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mimax-web/static/css/main.119c0475.css",
-    "main.js": "/mimax-web/static/js/main.23e5491c.js",
+    "main.css": "/mimax-web/static/css/main.7d2ce80e.css",
+    "main.js": "/mimax-web/static/js/main.e263df81.js",
     "static/media/smile.jpeg": "/mimax-web/static/media/smile.aeabd13c7b22f4f358b2.jpeg",
     "static/media/elvis.jpeg": "/mimax-web/static/media/elvis.66f6788418751332d23f.jpeg",
     "static/media/it.jpg": "/mimax-web/static/media/it.228782ffe1efc69881e2.jpg",
@@ -21,11 +21,11 @@
     "static/media/no_image_available.jpg": "/mimax-web/static/media/no_image_available.43cd9c57954bbdf584a5.jpg",
     "static/media/githublogo.png": "/mimax-web/static/media/githublogo.19ac7c5825995ac51dce.png",
     "index.html": "/mimax-web/index.html",
-    "main.119c0475.css.map": "/mimax-web/static/css/main.119c0475.css.map",
-    "main.23e5491c.js.map": "/mimax-web/static/js/main.23e5491c.js.map"
+    "main.7d2ce80e.css.map": "/mimax-web/static/css/main.7d2ce80e.css.map",
+    "main.e263df81.js.map": "/mimax-web/static/js/main.e263df81.js.map"
   },
   "entrypoints": [
-    "static/css/main.119c0475.css",
-    "static/js/main.23e5491c.js"
+    "static/css/main.7d2ce80e.css",
+    "static/js/main.e263df81.js"
   ]
 }
