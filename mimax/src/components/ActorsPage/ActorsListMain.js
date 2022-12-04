@@ -10,7 +10,7 @@ function ActorsListMain() {
   const [filled, setFilled] = useState(false);
 
   const [term, setTerm] = useState('');
-  const [searchType, setSearchType] = useState('actors');
+  const [searchType, setSearchType] = useState('people');
 
   function setSearch(e) {
     setTerm(e.target.value);

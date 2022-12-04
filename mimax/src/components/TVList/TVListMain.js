@@ -47,7 +47,12 @@ function TVListMain() {
     for (let i = 0; i < json.length; i += 1) {
       TVTitle.push(json[i].name);
       TVSynopsis.push(json[i].overview);
-      TVScore.push(`Score ${json[i].vote_average}`);
+
+      if (json[i].vote_count === 0) {
+        TVScore.push('Score N/A');
+      } else {
+        TVScore.push(`Score ${json[i].vote_average}`);
+      }
       TVImgLinks.push('https://image.tmdb.org/t/p/original' + json[i].poster_path);
     }
     setTVTitle(TVTitle);
@@ -91,7 +96,7 @@ function TVListMain() {
           </a>
           <Card.Body>
             <Card.Title className="top-title">
-              <h3>{TVTitle[num]} ({TVScore[num]})</h3>
+              <h3>{TVTitle[num]}<br />({TVScore[num]})</h3>
             </Card.Title>
             <br />
           </Card.Body>

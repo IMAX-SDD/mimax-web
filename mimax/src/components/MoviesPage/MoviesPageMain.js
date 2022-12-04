@@ -151,28 +151,28 @@ function MoviesPageMain() {
 
             <div className="col">
               <h3>
-                <a href={castLinks[0]}>{castList[0]}</a>
+                <a href={castLinks[0]} target="_blank" rel="noopener noreferrer">{castList[0]}</a>
               </h3>
               <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
             </div>
 
             <div className="col">
               <h3>
-                <a href={castLinks[1]}>{castList[1]}</a>
+                <a href={castLinks[1]} target="_blank" rel="noopener noreferrer">{castList[1]}</a>
               </h3>
               <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
             </div>
 
             <div className="col">
               <h3>
-                <a href={castLinks[2]}>{castList[2]}</a>
+                <a href={castLinks[2]} target="_blank" rel="noopener noreferrer">{castList[2]}</a>
               </h3>
               <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
             </div>
 
             <div className="col">
               <h3>
-                <a href={castLinks[3]}>{castList[3]}</a>
+                <a href={castLinks[3]} target="_blank" rel="noopener noreferrer">{castList[3]}</a>
               </h3>
               <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
             </div>

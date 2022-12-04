@@ -53,7 +53,13 @@ function MoviesListMain() {
     for (let i = 0; i < json.length; i += 1) {
       mt.push(json[i].original_title);
       ms.push(json[i].overview);
-      mss.push(`Score ${json[i].vote_average}`); 
+
+      if (json[i].vote_count === 0) {
+        mss.push('Score N/A');
+      } else {
+        mss.push(`Score ${json[i].vote_average}`);
+      }
+      
       if (json[i].poster_path == null) {
         mil.push(noImageAvailable);
       } else {
@@ -94,7 +100,7 @@ function MoviesListMain() {
           </a>
           <Card.Body>
             <Card.Title className="top-title">
-              <h3>{movieTitle[num]} ({movieScore[num]})</h3>
+              <h3>{movieTitle[num]}<br />({movieScore[num]})</h3>
             </Card.Title>
             <br />
           </Card.Body>

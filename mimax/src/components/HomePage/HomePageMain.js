@@ -139,6 +139,7 @@ function HomePageMain() {
                     <Card.Title className="home-actor-text">{FeaturedActor[0].description}</Card.Title>
                   </Card.Body>
                 </Card>
+                <p style={{ color: '#FFFFFF', fontSize: '1.5rem', fontWeight: 'bolder' }}>Actor/Actress Spotlight</p>
               </Col>
               <Col>
                 <p className="actor-name">
@@ -154,6 +155,7 @@ function HomePageMain() {
                     <Card.Title className="home-actor-text">{FeaturedDirector[0].description}</Card.Title>
                   </Card.Body>
                 </Card>
+                <p style={{ color: '#FFFFFF', fontSize: '1.5rem', fontWeight: 'bolder' }}>Director Spotlight</p>
               </Col>
             </Row>
           </Container>
