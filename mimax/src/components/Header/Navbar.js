@@ -17,22 +17,22 @@ function Navbar() {
       </button>
       <ul className="bar-links">
         <li>
-          <a href="/mimax-web">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="/movieslist">Movies</a>
+          <Link to="/movieslist">Movies</Link>
         </li>
         <li>
-          <a href="/tvlist">TV Shows</a>
+          <Link to="/tvlist">TV Shows</Link>
         </li>
         <li>
-          <a href="/actorslist">People</a>
+          <Link to="/actorslist">People</Link>
         </li>
         {/* <li>
           <a href="/directors">Directors</a>
         </li> */}
         <li>
-          <a href="/aboutus">About Us</a>
+          <Link to="/aboutus">About Us</Link>
         </li>
 
       </ul>
@@ -54,7 +54,7 @@ function Navbar() {
           >
             <FaBars />
           </button>
-          <Link className="logo" to="/mimax-web"><img className="logo" src={logo} alt="logo" /></Link>
+          <Link className="logo" to="/"><img className="logo" src={logo} alt="logo" /></Link>
         </div>
         {toggleBar && hamburgerMenu}
       </div>
