@@ -27,10 +27,10 @@ function ActorsPageMain() {
     const movieLinks = [];
     for (let index = 0; index < numOfWorks; index += 1) {
       if (!json.known_for[index].original_title) { 
-        movieLinks.push('https://sdd-mimax.netlify.app/tvshows?show=' + json.known_for[index].original_name);
+        movieLinks.push('https://imax-sdd.github.io/mimax-web/tvshows?show=' + json.known_for[index].original_name);
         popularWorks.push(json.known_for[index].original_name);
       } else {
-        movieLinks.push('https://sdd-mimax.netlify.app/movies?movie=' + json.known_for[index].original_title);
+        movieLinks.push('https://imax-sdd.github.io/mimax-web/movies?movie=' + json.known_for[index].original_title);
         popularWorks.push(json.known_for[index].original_title);
       }
     }
