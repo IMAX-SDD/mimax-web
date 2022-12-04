@@ -297,6 +297,11 @@ Carousel.indicatorLabels {
   width: 100%;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* MoviePageMain =================================*/
 .movie-page-main {
   padding: 20px;
