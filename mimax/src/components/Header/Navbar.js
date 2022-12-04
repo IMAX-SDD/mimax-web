@@ -17,7 +17,7 @@ function Navbar() {
       </button>
       <ul className="bar-links">
         <li>
-          <a href="/mimax-web">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
           <a href="/movieslist">Movies</a>
@@ -54,7 +54,7 @@ function Navbar() {
           >
             <FaBars />
           </button>
-          <Link className="logo" to="/mimax-web"><img className="logo" src={logo} alt="logo" /></Link>
+          <Link className="logo" to="/"><img className="logo" src={logo} alt="logo" /></Link>
         </div>
         {toggleBar && hamburgerMenu}
       </div>

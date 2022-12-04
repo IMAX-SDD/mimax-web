@@ -20,11 +20,11 @@ function TVListMain() {
   function handlePress(e) {
     let url = '';
     if (searchType === 'movies') {
-      url = 'https://imax-sdd.github.io/mimax-web/movies?movie=';
+      url = 'https://sdd-mimax.netlify.app/movies?movie=';
     } else if (searchType === 'people') {
-      url = 'https://imax-sdd.github.io/mimax-web/actors?actor=';
+      url = 'https://sdd-mimax.netlify.app/actors?actor=';
     } else {
-      url = 'https://imax-sdd.github.io/mimax-web/tvshows?show=';
+      url = 'https://sdd-mimax.netlify.app/tvshows?show=';
     }
     
     if (e.keyCode === 13) {
@@ -72,7 +72,7 @@ function TVListMain() {
   };
 
   function setGenreFilterOption(e) {
-    window.location.href = 'https://imax-sdd.github.io/mimax-web/tvlist?genre=' + e.target.value;
+    window.location.href = 'https://sdd-mimax.netlify.app/tvlist?genre=' + e.target.value;
   }
 
   useEffect(() => {
@@ -87,7 +87,7 @@ function TVListMain() {
     return (          
       <Col>
         <Card className="top-card" style={{ background: '#3E8943' }}>
-          <a href={`https://imax-sdd.github.io/mimax-web/tvshows?show=${TVTitle[num]}`} target="_blank" rel="noopener noreferrer">
+          <a href={`https://sdd-mimax.netlify.app/tvshows?show=${TVTitle[num]}`} target="_blank" rel="noopener noreferrer">
             <Card.Img
               className="top-img"
               src={TVImgLinks[num]}
