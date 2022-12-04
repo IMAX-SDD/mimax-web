@@ -20,10 +20,9 @@ function HomePageRouter() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePageMain />} />
+          <Route path="/mimax-web" element={<HomePageMain />} />
           <Route path="/actors" element={<ActorsPageMain />} />
           <Route path="/actorslist" element={<ActorsListMain />} />
-          {/* <Route path="/directors" element={<DirectorsPageMain />} /> */}
           <Route path="/movieslist" element={<MoviesListMain />} />
           <Route path="/movies" element={<MoviesPageMain />} />
           <Route path="/tvlist" element={<TVListMain />} />

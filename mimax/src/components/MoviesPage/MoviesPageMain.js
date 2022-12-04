@@ -57,7 +57,7 @@ function MoviesPageMain() {
       } else {
         cast[i] = castListData[i].name;
         castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
-        castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+        castLinks[i] = 'https://imax-sdd.github.io/mimax-web/actors?actor=' + castListData[i].name;
       }
     }
     setCastList(cast);

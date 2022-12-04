@@ -29,11 +29,11 @@ function HomePageMain() {
   function handlePress(e) {
     let url = '';
     if (searchType === 'movies') {
-      url = 'http://localhost:3000/movies?movie=';
+      url = 'https://imax-sdd.github.io/mimax-web/movies?movie=';
     } else if (searchType === 'people') {
-      url = 'http://localhost:3000/actors?actor=';
+      url = 'https://imax-sdd.github.io/mimax-web/actors?actor=';
     } else {
-      url = 'http://localhost:3000/tvshows?show=';
+      url = 'https://imax-sdd.github.io/mimax-web/tvshows?show=';
     }
     
     if (e.keyCode === 13) {

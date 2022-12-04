@@ -21,11 +21,11 @@ function MoviesListMain() {
   function handlePress(e) {
     let url = '';
     if (searchType === 'movies') {
-      url = 'http://localhost:3000/movies?movie=';
+      url = 'https://imax-sdd.github.io/mimax-web/movies?movie=';
     } else if (searchType === 'people') {
-      url = 'http://localhost:3000/actors?actor=';
+      url = 'https://imax-sdd.github.io/mimax-web/actors?actor=';
     } else {
-      url = 'http://localhost:3000/tvshows?show=';
+      url = 'https://imax-sdd.github.io/mimax-web/tvshows?show=';
     }
     
     if (e.keyCode === 13) {
@@ -83,7 +83,7 @@ function MoviesListMain() {
   };
 
   function setGenreFilterOption(e) {
-    window.location.href = 'http://localhost:3000/movieslist?genre=' + e.target.value;
+    window.location.href = 'https://imax-sdd.github.io/mimax-web/movieslist?genre=' + e.target.value;
   }
 
   // generates a single top movie card
@@ -91,7 +91,7 @@ function MoviesListMain() {
     return (          
       <Col>
         <Card className="top-card" style={{ background: '#3E8943' }}>
-          <a href={`http://localhost:3000/movies?movie=${movieTitle[num]}`} target="_blank" rel="noopener noreferrer">
+          <a href={`https://imax-sdd.github.io/mimax-web/movies?movie=${movieTitle[num]}`} target="_blank" rel="noopener noreferrer">
             <Card.Img
               className="top-img"
               src={movieImgLinks[num]}
