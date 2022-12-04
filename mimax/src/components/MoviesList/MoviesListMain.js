@@ -83,7 +83,7 @@ function MoviesListMain() {
   };
 
   function setGenreFilterOption(e) {
-    window.location.href = https://sdd-mimax.netlify.app/movieslist?genre=' + e.target.value;
+    window.location.href = 'https://sdd-mimax.netlify.app/movieslist?genre=' + e.target.value;
   }
 
   // generates a single top movie card
