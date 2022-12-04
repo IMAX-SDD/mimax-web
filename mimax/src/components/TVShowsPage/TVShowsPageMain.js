@@ -37,13 +37,16 @@ function TVShowsPageMain() {
     const cast = ['', '', '', ''];
     const castImg = ['', '', '', ''];
     for (let i = 0; i < 4; i += 1) {
-      console.log(castListData[i]);
       if (castListData[i] === undefined) {
         cast[i] = 'Unavailable';
         castImg[i] = noImageAvailable;
       } else {
         cast[i] = castListData[i].name;
-        castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        if (castListData[i].profile_path === null || castListData[i].profile_path === undefined) {
+          castImg[i] = noImageAvailable;
+        } else {
+          castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        }
         castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name; 
       }
     }
@@ -62,7 +65,6 @@ function TVShowsPageMain() {
   };
 
   const getCast = (id) => {
-    console.log(id);
     const link = `https://api.themoviedb.org/3/tv/${id}/credits?api_key=9e6293836bcabd02d80d27ccca8eb072`;
     fetch(link, { method: 'GET' })
       // Parsing the data into a JavaScript object

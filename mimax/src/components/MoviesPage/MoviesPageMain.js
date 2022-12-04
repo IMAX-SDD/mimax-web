@@ -50,13 +50,16 @@ function MoviesPageMain() {
     const cast = ['', '', '', ''];
     const castImg = ['', '', '', ''];
     for (let i = 0; i < 4; i += 1) {
-      console.log(castListData[i]);
       if (castListData[i] === undefined) {
         cast[i] = 'Unavailable';
         castImg[i] = noImageAvailable;
       } else {
         cast[i] = castListData[i].name;
-        castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        if (castListData[i].profile_path === null || castListData[i].profile_path === undefined) {
+          castImg[i] = noImageAvailable;
+        } else {
+          castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        }
         castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
       }
     }
