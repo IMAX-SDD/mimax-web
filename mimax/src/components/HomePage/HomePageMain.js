@@ -29,7 +29,7 @@ function HomePageMain() {
     let url = '';
     if (searchType === 'movies') {
       url = 'http://localhost:3000/movies?movie=';
-    } else if (searchType === 'actors') {
+    } else if (searchType === 'people') {
       url = 'http://localhost:3000/actors?actor=';
     } else {
       url = 'http://localhost:3000/tvshows?show=';
@@ -52,11 +52,13 @@ function HomePageMain() {
           {movieData.map((item) => (
             <Carousel.Item key={item.id}>
               <Card style={{ background: '#3E8943' }}>
-                <Card.Img
-                  className="movie-img"
-                  src={require(`/src/components/Images/MoviePosters/${item.img}`)}
-                  alt="movie-poster"
-                />
+                <a href={`http://localhost:3000/movies?movie=${item.title}`} target="_blank" rel="noopener noreferrer">
+                  <Card.Img
+                    className="movie-img"
+                    src={require(`/src/components/Images/MoviePosters/${item.img}`)}
+                    alt="movie-poster"
+                  />
+                </a>
                 <Card.Body>
                   <Card.Title className="movie-title">{item.title}</Card.Title>
                   <br />
@@ -81,7 +83,7 @@ function HomePageMain() {
                 {/* <Form.Group className="search-field"> */}
                 <Form.Select onChange={setSearchTypeForm}>
                   <option value="movies">Movies</option>
-                  <option value="actors">Actors</option>
+                  <option value="people">People</option>
                   <option value="tvshows">TV Shows</option>
                 </Form.Select>
                 {/* </Form.Group> */}
@@ -92,7 +94,7 @@ function HomePageMain() {
             </Row>
           </Form>
         </div>
-
+        <br />
         <section className="movie-list">
           <Container>
             <Row>
@@ -124,7 +126,9 @@ function HomePageMain() {
           <Container>
             <Row>
               <Col>
-                <p className="actor-name">{FeaturedActor[0].Name}</p>
+                <p className="actor-name">
+                  <a style={{ color: '#FFFFFF' }} href={`http://localhost:3000/actors?actor=${FeaturedActor[0].Name}`} target="_blank" rel="noopener noreferrer">{FeaturedActor[0].Name} </a>
+                </p> 
                 <Card className="actor-card" style={{ background: '#312828' }}>
                   <Card.Img
                     className="home-actor-img1"
@@ -135,9 +139,12 @@ function HomePageMain() {
                     <Card.Title className="home-actor-text">{FeaturedActor[0].description}</Card.Title>
                   </Card.Body>
                 </Card>
+                <p style={{ color: '#FFFFFF', fontSize: '1.5rem', fontWeight: 'bolder' }}>Actor/Actress Spotlight</p>
               </Col>
               <Col>
-                <p className="actor-name">{FeaturedDirector[0].Name}</p>
+                <p className="actor-name">
+                  <a style={{ color: '#FFFFFF' }} href={`http://localhost:3000/actors?actor=${FeaturedDirector[0].Name}`} target="_blank" rel="noopener noreferrer">{FeaturedDirector[0].Name}</a>
+                </p>
                 <Card className="actor-card" style={{ background: '#312828' }}>
                   <Card.Img
                     className="home-actor-img2"
@@ -148,6 +155,7 @@ function HomePageMain() {
                     <Card.Title className="home-actor-text">{FeaturedDirector[0].description}</Card.Title>
                   </Card.Body>
                 </Card>
+                <p style={{ color: '#FFFFFF', fontSize: '1.5rem', fontWeight: 'bolder' }}>Director Spotlight</p>
               </Col>
             </Row>
           </Container>

@@ -54,10 +54,11 @@ body {
 }
 
 .logo {
-  width: 300px;
+  max-width: 100%;
+  width: 160px;
   display: block;
   margin: auto;
-  margin-top: -70px;
+  margin-top: -52px;
 }
 
 .sidebar {
@@ -240,7 +241,6 @@ body {
 .movie-img {
   border-radius: 9px;
   margin-bottom: 9px;
-
 }
 
 Carousel.indicatorLabels {
@@ -257,12 +257,75 @@ Carousel.indicatorLabels {
   transition: 0.3s ease;
 }
 
+/* Top movie/tvshows/people pages ====================================*/
+.top-movie-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.top-card {
+  width: 100%;
+  max-width: 280px;
+  background-color: hsl(124, 42%, 38%);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 3px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px; 
+  margin-bottom: 20px;
+  transition: transform 1s;
+}
+
+.top-card:hover {
+  transform: scale(1.1);
+}
+
+.top-title {
+  font-size: 20px;
+  font-weight: Bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-img {
+  width: 100%;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* MoviePageMain =================================*/
 .movie-page-main {
   padding: 20px;
 }
 
 .movie-page-synopsis {
+  font-size: 25px;
+}
+
+.cast-photo {
+  position: flex;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+/* TVShowPageMain =================================*/
+.TVShow-page-main {
+  padding: 20px;
+}
+
+.TVShow-page-synopsis {
   font-size: 25px;
 }
 

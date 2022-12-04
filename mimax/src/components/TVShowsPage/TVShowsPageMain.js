@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // tv shows page where main code/functionality happens
 // issue: have to fix up to tailor toward tv show page
@@ -15,8 +16,17 @@ function TVShowsPageMain() {
   const [castLinks, setCastLinks] = useState([]);
 
   function setOMDBDetails(data) {
-    setShowImgLink(data.Poster);
-    setShowAgeRating(data.Rated);
+    if (data.Poster === undefined) {
+      setShowImgLink(noImageAvailable);
+    } else {
+      setShowImgLink(data.Poster);
+    }
+
+    if (data.Rated === undefined) {
+      setShowAgeRating('N/A');
+    } else {
+      setShowAgeRating(data.Rated);
+    } 
   }
 
   function setCastDetails(data) {
@@ -27,10 +37,18 @@ function TVShowsPageMain() {
     const cast = ['', '', '', ''];
     const castImg = ['', '', '', ''];
     for (let i = 0; i < 4; i += 1) {
-      console.log(castListData[i]);
-      cast[i] = castListData[i].name;
-      castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
-      castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+      if (castListData[i] === undefined) {
+        cast[i] = 'Unavailable';
+        castImg[i] = noImageAvailable;
+      } else {
+        cast[i] = castListData[i].name;
+        if (castListData[i].profile_path === null || castListData[i].profile_path === undefined) {
+          castImg[i] = noImageAvailable;
+        } else {
+          castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        }
+        castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name; 
+      }
     }
     setCastList(cast);
     setCastImages(castImg);
@@ -47,7 +65,6 @@ function TVShowsPageMain() {
   };
 
   const getCast = (id) => {
-    console.log(id);
     const link = `https://api.themoviedb.org/3/tv/${id}/credits?api_key=9e6293836bcabd02d80d27ccca8eb072`;
     fetch(link, { method: 'GET' })
       // Parsing the data into a JavaScript object
@@ -60,7 +77,7 @@ function TVShowsPageMain() {
   function setTVDetails(json) {
     setTVTitle(json[0].name);
     setTVSynopsis(json[0].overview);
-    setTVScore(`Score ${json[0].vote_average}`);
+    setTVScore(json[0].vote_average);
     getCast(json[0].id);
     getPoster(json[0].name);
   }
@@ -79,42 +96,62 @@ function TVShowsPageMain() {
     callAPI(searchParams.get('show'));
   }, []);
 
+  // Displays a TV Show's title, poster, score, rating,
+  // and cast members
   return (
-    <div className="main">
+    <div className="TVShow-page-main">
       <div className="movie-display-section">
-        <h2>{tvTitle}</h2>
-        <img src={showImgLink} alt="show poster" />
-        <h3>Rating: {showRating}</h3>
-        <p>{tvSynopsis}</p>
-        <h3>{tvScore}</h3>
-        <div className="row">
-          <h2 style={{ marginTop: 30 }}>Cast:</h2>
-          <div className="col">
-            <h3>
-              <a href={castLinks[0]}>{castList[0]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
-          </div>
+        <div className="container">
+          <div className="row">
 
-          <div className="col">
-            <h3>
-              <a href={castLinks[1]}>{castList[1]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
-          </div>
+            <div className="col">
+              <h2>{tvTitle}</h2>
+              <img alt="show poster" src={showImgLink} />
+            </div>
+            <div className="col">
+              <h2>Synopsis</h2>
+              <p className="TVShow-page-synopsis">{tvSynopsis}</p>
+              <h3>
+                <h2>Score</h2>
+                {tvScore}
+              </h3>
+              <h3>
+                <h2>Rated</h2>
+                {showRating}
+              </h3>
+            </div>
+          </div> 
 
-          <div className="col">
-            <h3>
-              <a href={castLinks[2]}>{castList[2]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
-          </div>
+          <div className="row">
+            <h2 style={{ marginTop: 30 }}>Cast:</h2>
 
-          <div className="col">
-            <h3>
-              <a href={castLinks[3]}>{castList[3]}</a>
-            </h3>
-            <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
+            <div className="col">
+              <h3>
+                <a href={castLinks[0]} target="_blank" rel="noopener noreferrer">{castList[0]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[1]} target="_blank" rel="noopener noreferrer">{castList[1]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[2]} target="_blank" rel="noopener noreferrer">{castList[2]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
+            </div>
+
+            <div className="col">
+              <h3>
+                <a href={castLinks[3]} target="_blank" rel="noopener noreferrer">{castList[3]}</a>
+              </h3>
+              <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
+            </div>
           </div>
         </div> 
       </div>

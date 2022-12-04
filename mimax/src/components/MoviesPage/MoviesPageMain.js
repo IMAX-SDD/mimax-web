@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import noImageAvailable from '../Images/Misc/no_image_available.jpg';
 
 // movies page where main code/functionality happens
 function MoviesPageMain() {
@@ -15,16 +16,29 @@ function MoviesPageMain() {
   const [castLinks, setCastLinks] = useState([]);
 
   function setOMDBDetails(data) {
-    setMovieImgLink(data.Poster);
-    setMovieAgeRating(data.Rated);
+    if (data.Poster === undefined) {
+      setMovieImgLink(noImageAvailable);
+    } else {
+      setMovieImgLink(data.Poster);
+    }
+    
+    if (data.Rated === undefined) {
+      setMovieAgeRating('N/A');
+    } else {
+      setMovieAgeRating(data.Rated);
+    }
   }
 
   function setMovieProviderDetails(name) {
-    const sources = name.US.flatrate;
-    if (sources.length > 0) {
-      setMovieProvider(sources[0].provider_name);
+    if (name.US === undefined || name.US.flatrate === undefined) {
+      setMovieProvider('N/A');
     } else {
-      setMovieProvider(name.US.buy[0].provider_name);
+      const sources = name.US.flatrate;
+      if (sources.length > 0) {
+        setMovieProvider(sources[0].provider_name);
+      } else {
+        setMovieProvider(name.US.buy[0].provider_name);
+      }
     }
   }
 
@@ -36,10 +50,18 @@ function MoviesPageMain() {
     const cast = ['', '', '', ''];
     const castImg = ['', '', '', ''];
     for (let i = 0; i < 4; i += 1) {
-      console.log(castListData[i]);
-      cast[i] = castListData[i].name;
-      castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
-      castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+      if (castListData[i] === undefined) {
+        cast[i] = 'Unavailable';
+        castImg[i] = noImageAvailable;
+      } else {
+        cast[i] = castListData[i].name;
+        if (castListData[i].profile_path === null || castListData[i].profile_path === undefined) {
+          castImg[i] = noImageAvailable;
+        } else {
+          castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        }
+        castLinks[i] = 'http://localhost:3000/actors?actor=' + castListData[i].name;
+      }
     }
     setCastList(cast);
     setCastImages(castImg);
@@ -104,6 +126,7 @@ function MoviesPageMain() {
       <div className="movie-display-section">
         <div className="container">
           <div className="row">
+            
             <div className="col">
               <h2>{movieTitle}</h2>
               <img alt="movie poster" src={movieImgLink} />
@@ -131,31 +154,32 @@ function MoviesPageMain() {
 
             <div className="col">
               <h3>
-                <a href={castLinks[0]}>{castList[0]}</a>
+                <a href={castLinks[0]} target="_blank" rel="noopener noreferrer">{castList[0]}</a>
               </h3>
               <img className="cast-photo" src={castImages[0]} alt="cast member 1" />
             </div>
 
             <div className="col">
               <h3>
-                <a href={castLinks[1]}>{castList[1]}</a>
+                <a href={castLinks[1]} target="_blank" rel="noopener noreferrer">{castList[1]}</a>
               </h3>
               <img className="cast-photo" src={castImages[1]} alt="cast member 2" />
             </div>
 
             <div className="col">
               <h3>
-                <a href={castLinks[2]}>{castList[2]}</a>
+                <a href={castLinks[2]} target="_blank" rel="noopener noreferrer">{castList[2]}</a>
               </h3>
               <img className="cast-photo" src={castImages[2]} alt="cast member 3" />
             </div>
 
             <div className="col">
               <h3>
-                <a href={castLinks[3]}>{castList[3]}</a>
+                <a href={castLinks[3]} target="_blank" rel="noopener noreferrer">{castList[3]}</a>
               </h3>
               <img className="cast-photo" src={castImages[3]} alt="cast member 4" />
             </div>
+
           </div> 
         </div>
       </div>
