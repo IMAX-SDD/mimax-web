@@ -96,7 +96,7 @@ function ActorsListMain() {
     return (          
       <Col>
         <Card className="top-card" style={{ background: '#3E8943' }}>
-          <a href={`https://imax-sdd.github.io/mimax-web/actors?actor=${actorsList[num].name}`} target="_blank" rel="noopener noreferrer">
+          <a href={`https://sdd-mimax.netlify.app/actors?actor=${actorsList[num].name}`} target="_blank" rel="noopener noreferrer">
             <Card.Img
               className="top-img"
               src={actorsList[num].imgLink}

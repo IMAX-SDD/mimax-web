@@ -53,7 +53,7 @@ function TVShowsPageMain() {
   }
 
   const getPoster = (name) => {
-    const link = `http://www.omdbapi.com/?t=${name}&apikey=acae3f03`;
+    const link = `https://www.omdbapi.com/?t=${name}&apikey=acae3f03`;
     fetch(link, { method: 'GET' })
       // Parsing the data into a JavaScript object
       .then((data) => data.json())
