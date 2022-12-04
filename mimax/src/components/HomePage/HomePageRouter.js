@@ -26,7 +26,7 @@ function HomePageRouter() {
           <Route path="/movieslist" element={<MoviesListMain />} />
           <Route path="/movies" element={<MoviesPageMain />} />
           <Route path="/tvlist" element={<TVListMain />} />
-          <Route path="/tvshows" element={<TVShowsPageMain />} />          
+          <Route path="/tvshows" element={<TVShowsPageMain />} />
           <Route path="/aboutus" element={<AboutUsMain />} />
         </Routes>
       </Router>
