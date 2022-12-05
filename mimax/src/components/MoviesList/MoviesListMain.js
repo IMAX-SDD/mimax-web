@@ -127,7 +127,7 @@ function MoviesListMain() {
     <div className="main row">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Top Movies</h1>
+        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Movies Page</h1>
         <div className="search-field">
           <Form>
             <Row>
