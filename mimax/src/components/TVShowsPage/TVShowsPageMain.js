@@ -43,7 +43,11 @@ function TVShowsPageMain() {
         castImg[i] = noImageAvailable;
       } else {
         cast[i] = castListData[i].name;
-        castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        if (castListData[i].profile_path === undefined || castListData[i].profile_path === null){
+          castImg[i] = noImageAvailable;
+        } else {
+          castImg[i] = 'https://image.tmdb.org/t/p/w500' + castListData[i].profile_path;
+        }
         castLinks[i] = 'https://sdd-mimax.netlify.app/actors?actor=' + castListData[i].name; 
       }
     }

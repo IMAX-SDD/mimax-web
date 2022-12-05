@@ -109,7 +109,7 @@ function TVListMain() {
     <div className="main">
       <div className="movie-display-section">
         <br />
-        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>Top TV Shows</h1>
+        <h1 style={{ fontSize: '45px', fontWeight: 'bold', margin: '0px' }}>TV Shows Page</h1>
         <div className="search-field">
           <Form>
             <Row>
