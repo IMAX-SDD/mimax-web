@@ -6,7 +6,7 @@ import Navbar from '../Header/Navbar';
 // routing for movies page
 // do we need className="MoviesPage"?
 function MoviesPageRouter() {
-  return (
+  return ( // usage of navbar component
     <div className="MoviesPage">
       <Navbar />
       <MoviesPageMain />

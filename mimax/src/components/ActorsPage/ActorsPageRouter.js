@@ -4,7 +4,7 @@ import Navbar from '../Header/Navbar';
 import ActorsPageMain from './ActorsPageMain';
 
 // routing for actors page page
-function ActorsPageRouter() {
+function ActorsPageRouter() { // usage of navbar instance
   return (
     <div>
       <Navbar />

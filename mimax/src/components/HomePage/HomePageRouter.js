@@ -15,7 +15,7 @@ import ActorsPageMain from '../ActorsPage/ActorsPageMain';
 // routing for home page
 // do we need className="Homepage", looks like we don't?
 function HomePageRouter() {
-  return (
+  return ( // usage of many components defined elsewhere, example of singleton pattern
     <div className="Homepage">
       <Router>
         <Navbar />

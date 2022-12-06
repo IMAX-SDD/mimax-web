@@ -132,7 +132,7 @@ function MoviesPageMain() {
 
   // Displays a movie's title,poster,IMDB score, rating, provider,
   // and cast members
-  return (
+  return ( // usage of singleton design pattern for this component
     <div className="movie-page-main">
       <div className="movie-display-section">
         <div className="container">

@@ -98,7 +98,7 @@ function TVShowsPageMain() {
 
   // Displays a TV Show's title, poster, score, rating,
   // and cast members
-  return (
+  return ( // usage of singleton design pattern for this component
     <div className="TVShow-page-main">
       <div className="movie-display-section">
         <div className="container">

@@ -1,7 +1,7 @@
-import { React } from 'react';
+import { React } from 'react'; 
 
 // About Us page
-function AboutUsMain() {
+function AboutUsMain() { // usage of singleton design pattern for this component
   return (
     <div className="boxed">
       <div className="aboutText">

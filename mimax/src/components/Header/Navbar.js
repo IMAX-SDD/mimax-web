@@ -43,7 +43,7 @@ function Navbar() {
   );
 
   // HTML for expansion of bar
-  return (
+  return ( // usage of singleton design pattern for this component
     <nav>
       <div className={toggleBar ? 'background-dark' : 'background'}>
         <div className="nav-header">

@@ -45,7 +45,7 @@ function HomePageMain() {
   }
 
   // display of movies function with a carousel-like viewing
-  function displayMovies(movieData) {
+  function displayMovies(movieData) { // usage of singleton design pattern for this component
     return (
       <div className="movie-card">
         <Carousel>

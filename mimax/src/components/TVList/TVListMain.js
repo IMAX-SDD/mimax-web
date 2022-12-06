@@ -105,7 +105,7 @@ function TVListMain() {
     );
   }
 
-  return (
+  return ( // usage of singleton design pattern for this component
     <div className="main">
       <div className="movie-display-section">
         <br />

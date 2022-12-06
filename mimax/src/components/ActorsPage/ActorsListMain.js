@@ -137,7 +137,7 @@ function ActorsListMain() {
     ); 
   }  
 
-  return (
+  return ( // usage of singleton design pattern for this component
     <div className="main row">
       <div className="movie-display-section">
         <br />
